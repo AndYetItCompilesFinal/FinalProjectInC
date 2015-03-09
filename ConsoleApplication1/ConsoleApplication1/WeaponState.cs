@@ -8,7 +8,7 @@ namespace ConsoleApplication1
 {
     class WeaponState:State
     {
-        public void DoAction(Context context, Room room, Party party, Backpack pack, Level level)
+        public bool DoAction(Context context, Room room, Party party, Backpack pack, Level level)
         {
             context.setState(this);
             int choice;
@@ -42,10 +42,12 @@ namespace ConsoleApplication1
                     MainCharacter main = (MainCharacter)party.GetMain();
                     main.SetWeapon(room.weapon);
                     room.weapon = new NoWeapon();
+                    room.size--;
                     break;
                 default:
                     break;
             }//end of switch
+            return false;
         }
 
     }

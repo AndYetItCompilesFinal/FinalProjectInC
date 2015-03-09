@@ -144,17 +144,17 @@ namespace ConsoleApplication1
                 minionState.DoAction(context, level[row, col], party, pack, this);
                 //minionorbattlestate
             }
-            if (level[row, col].type is Exit)
-            {
-                exitState.DoAction(context, level[row, col], party, pack, this);
-                //exitstate
-            }//end 
             //int index;
             if (level[row, col].unique is UniqueItem)
             {
                 uniqueState.DoAction(context, level[row, col], party, pack, this);
                 //uniquestate
             }
+            if (level[row, col].type is Exit)
+            {
+                return exitState.DoAction(context, level[row, col], party, pack, this);
+                //exitstate
+            }//end 
             Console.WriteLine(this);
             return false;
         }

@@ -8,6 +8,6 @@ namespace ConsoleApplication1
 {
     public interface State
     {
-        void DoAction(Context context,Room room, Party party, Backpack pack,Level level);
+        bool DoAction(Context context,Room room, Party party, Backpack pack,Level level);
     }
 }

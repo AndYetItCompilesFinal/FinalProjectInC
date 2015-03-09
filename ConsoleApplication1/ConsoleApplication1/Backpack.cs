@@ -20,7 +20,7 @@ namespace ConsoleApplication1
             {
                 if (list[i] is UniqueItem)
                 {
-                    list.Remove(i);
+                    list.RemoveAt(i);
                     i--;
                 }
             }
@@ -34,13 +34,19 @@ namespace ConsoleApplication1
             {
                 if (o is UniqueItem)
                 {
-                    if (list[i].ToString().Equals(o.ToString()))
+                    UniqueItem obj = (UniqueItem)o;
+                    
+                    if(list[i] is UniqueItem)
                     {
-                        UniqueItem obj = (UniqueItem)o;
-                        obj.quantity++;
-                        o = obj;
-                        result = true;
+                        UniqueItem listobj = (UniqueItem)list[i];
+                        if (listobj.description.Equals(obj.description))
+                        {
+                            listobj.quantity++;
+                            list[i] = listobj;
+                            result = true;
+                        }
                     }
+                    
                 }
             } 
             if (!result)

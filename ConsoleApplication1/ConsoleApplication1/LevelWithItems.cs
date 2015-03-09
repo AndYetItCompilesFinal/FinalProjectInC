@@ -16,7 +16,7 @@ namespace ConsoleApplication1
             this.disney = disney;
             initialize(weapon, boss);
             this.target = new List<UniqueItem>();
-            targetToArrayList(target);
+            targetToList(target);
             this.pack = pack;
             foreach (string item in items)
             {
@@ -38,7 +38,7 @@ namespace ConsoleApplication1
             Console.WriteLine();
         }
 
-        public void targetToArrayList(String[] target)
+        public void targetToList(String[] target)
         {
             bool result = false;
             foreach (string item in target)
@@ -46,7 +46,7 @@ namespace ConsoleApplication1
                 result = false;
                 foreach (UniqueItem o in this.target)
                 {
-                    if (item.Equals(o.ToString()))
+                    if (item.Equals(o.description))
                     {
                         o.quantity++;
                         result = true;
@@ -79,10 +79,16 @@ namespace ConsoleApplication1
                 result = false;
                 foreach (Object o in pack.list)
                 {
-                        if (o.ToString().Equals(item.ToString()))
+                        if(o is UniqueItem)
                         {
-                            result = true;
+                            UniqueItem obj = (UniqueItem)o;
+                            if (obj.description.Equals(item.description)&&obj.quantity>=item.quantity)
+                            {
+                                result = true;
+                            }
+
                         }
+                       
                 }
                 if (result == false)
                 {

@@ -64,7 +64,6 @@ namespace ConsoleApplication1
         public void unlockCharacter(GoodGuy character, Party party)
         {
             int choice;
-            characters.Add(character.ToString());
             do
             {
                 Console.WriteLine("You have unlocked " + character.ToString());
@@ -93,7 +92,7 @@ namespace ConsoleApplication1
             {
                 do
                 {
-                    Console.WriteLine("Would would you like to swap?");
+                    Console.WriteLine("Who would you like to swap?");
                     Console.WriteLine("1) " + party.GetParty(1).ToString());
                     Console.WriteLine("2) " + party.GetParty(2).ToString());
                     Console.WriteLine("Choice-->");
@@ -114,6 +113,11 @@ namespace ConsoleApplication1
                 } while (choice != 1 && choice != 2);
                 characters.Add(party.GetParty(choice).ToString());
                 party.SetParty(character, choice);
+                Console.WriteLine(this);
+            }
+            else
+            {
+                characters.Add(character.ToString());
             }
         }
 

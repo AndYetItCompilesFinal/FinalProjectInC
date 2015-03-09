@@ -8,7 +8,7 @@ namespace ConsoleApplication1
 {
     public class PotionState: State
     {
-        public void DoAction(Context context,Room room,Party party, Backpack pack, Level level)
+        public bool DoAction(Context context,Room room,Party party, Backpack pack, Level level)
         {
             context.setState(this);
             int choice;
@@ -68,6 +68,7 @@ namespace ConsoleApplication1
 
                     party.GetParty(choice - 1).AddHp(room.potion.getHP());
                     room.potion = new NoPotion();
+                    room.size--;
                     break;
                 case 2:
                     pack.list.Add(room.potion);
@@ -77,6 +78,7 @@ namespace ConsoleApplication1
                 default:
                     break;
             }//end of switch
+            return false;
         }
     }
 }
