@@ -1,0 +1,62 @@
+        Stitch
+            MaxHp = 50;      //health 50
+            Hp = 50;         //hp 50
+            Defense = 50;    //defense 5
+            Speed = 5;       //speed 15
+            Attack = 20;     //attack 10
+
+		
+        Pluto
+            MaxHp = 50;      //health 50
+            Hp = 50;         //hp 50
+            Defense = 50;    //defense 3
+            Speed = 5;       //speed 20
+            Attack = 20;     //attack 13
+ 
+		
+		PeterPan
+            MaxHp = 50;      //health 30
+            Hp = 50;         //hp 30
+            Defense = 50;    //defense 1
+            Speed = 5;       //speed 20
+            Attack = 20;     //attack 30
+		
+        Hades
+            MaxHp = 50;      //health 50
+            Hp = 50;         //hp 50
+            Defense = 50;    //defense 10
+            Speed = 5;       //speed 10
+            Attack = 20;     //attack 10
+			
+		
+        Dumbo
+            MaxHp = 50;      //maxhp 60
+            Hp = 50;         //hp 60
+            Defense = 50;    //defense 10
+            Speed = 5;      //speed 5
+            Attack = 20;   //attack 5
+			
+		
+        ChickenLittle
+            MaxHp = 50;    //maxHp 40
+            Hp = 50;       //hp 40
+            Defense = 50; //defense 2
+            Speed = 5;    //speed 30
+            Attack = 20;  //attack 35
+        
+		
+        PoohBear
+            MaxHp = 50;   //max hp 70
+            Hp = 50;      //hp 70
+            Defense = 50; //defense 15
+            Speed = 5;    //speed .5
+            Attack = 20;  //attack 7
+   
+		
+         Pocahontas
+            MaxHp = 50;   //max hp 25
+            Hp = 50;      //hp 25
+            Defense = 50; //defense 3
+            Speed = 5;    //speed 40
+            Attack = 20;  //attack 28
+            
