@@ -5,14 +5,17 @@ using System.Text;
 
 namespace ConsoleApplication1
 {
-    public abstract class MinionBehavior:BadGuy
+    public abstract class MinionBehavior
     {
-        public String description;
-        public int numofminions;
+        public string Description;
+        public int Numofminions;
+        public BadGuy Minion;
+        public BadGuy[] Minions;
+
 
         public override string ToString()
         {
-            return ", " + description;
+            return ", " + Description;
         }
 
     }

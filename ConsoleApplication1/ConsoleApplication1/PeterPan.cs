@@ -8,36 +8,27 @@ namespace ConsoleApplication1
     class PeterPan : GoodGuy
     {
         public PeterPan()
+            : base("Peter Pan", 100, 100, .5, 5, 20, "Hello", "Bye", "attack 1", "attack 2", "attack3")
         {
-            Name = "Peter Pan";
-            MaxHp = 50;      //health 30
-            Hp = 50;         //hp 30
-            Defense = 50;    //defense 1
-            Speed = 5;       //speed 20
-            Attack = 20;     //attack 30
-            Alive = true;
-            Good = true;
-            attackName1 = "ATTACK ONE NAME";
-            attackName2 = "ATTACK TWO NAME";
-            attackName3 = "ATTACK THREE NAME";
+  
         }
-
         public override int Attack1()
         {
-            throw new NotImplementedException();
-        }
-        public override int Attack2()
-        {
-            throw new NotImplementedException();
-        }
-        public override int Attack3()
-        {
-            throw new NotImplementedException();
+            Console.WriteLine(this.Name + " tried to slash the enemy with his sword. ");
+            return 15;
         }
 
-        public override int ChooseAttack()
+        public override int Attack2()
         {
-            throw new NotImplementedException();
+            Console.WriteLine(this.Name + "tried to trip the enemy. ");
+            return 5;
         }
+
+        public override int Attack3()
+        {
+            Console.WriteLine(this.Name + " tried to jump on and attack the enemy.");
+            return 5;
+        }
+
     }
 }

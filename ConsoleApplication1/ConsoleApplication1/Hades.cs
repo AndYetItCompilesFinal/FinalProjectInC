@@ -5,38 +5,31 @@ using System.Text;
 
 namespace ConsoleApplication1
 {
-    class Hades:BossBehavior
+    internal class Hades : BossBehavior
     {
         public Hades()
+            : base("Hades", 100, 100, .5, 3, 20, "Hello", "Bye", "attack 1", "attack 2", "attack3")
         {
-            Name = "Hades";
-            MaxHp = 50;      //health 50
-            Hp = 50;         //hp 50
-            Defense = 50;    //defense 10
-            Speed = 5;       //speed 10
-            Attack = 20;     //attack 10
-            Alive = true;
-            Good = true;
-            attackName1 = "ATTACK ONE NAME";
-            attackName2 = "ATTACK TWO NAME";
-            attackName3 = "ATTACK THREE NAME";
-        }
 
+        }
         public override int Attack1()
         {
-            throw new NotImplementedException();
+            Console.WriteLine(this.Name + " tried to slash the enemy with his sword. ");
+            return 1;
         }
+
         public override int Attack2()
         {
-            throw new NotImplementedException();
+            Console.WriteLine(this.Name + "tried to trip the enemy. ");
+            return 1;
         }
+
         public override int Attack3()
         {
-            throw new NotImplementedException();
+            Console.WriteLine(this.Name + " tried to jump on and attack the enemy.");
+            return 1;
         }
-        public override int ChooseAttack()
-        {
-            throw new NotImplementedException();
-        }
+
+
     }
 }

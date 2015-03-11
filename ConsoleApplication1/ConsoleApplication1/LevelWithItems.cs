@@ -9,10 +9,9 @@ namespace ConsoleApplication1
     {
         public List<UniqueItem> target;
         public Backpack pack;
-        public LevelWithItems(GoodGuy disney, WeaponBehavior weapon, BossBehavior boss, String[] items, String[] target, int position, Backpack pack)
+        public LevelWithItems(GoodGuy disney, WeaponBehavior weapon, BossBehavior boss, String[] items, String[] target, Backpack pack)
         {
 
-            this.towerPosition = position;
             this.disney = disney;
             initialize(weapon, boss);
             this.target = new List<UniqueItem>();

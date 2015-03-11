@@ -27,6 +27,10 @@ namespace ConsoleApplication1
         public override string ToString()
         {
             String result = "";
+            if (type is Exit)
+            {
+                return "";
+            }
             result += type.ToString();
             if (this.size == 0)
             {

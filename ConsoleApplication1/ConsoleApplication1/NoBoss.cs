@@ -8,6 +8,7 @@ namespace ConsoleApplication1
     class NoBoss:BossBehavior
     {
         public NoBoss()
+            : base("No Boss", 0, 0, 0, 0, 0, "", "", "", "", "")
         {
 
         }
@@ -24,9 +25,6 @@ namespace ConsoleApplication1
         {
             throw new NotImplementedException();
         }
-        public override int ChooseAttack()
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }

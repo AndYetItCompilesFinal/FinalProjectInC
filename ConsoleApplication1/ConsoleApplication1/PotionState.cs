@@ -8,7 +8,7 @@ namespace ConsoleApplication1
 {
     public class PotionState: State
     {
-        public bool DoAction(Context context,Room room,Party party, Backpack pack, Level level)
+        public bool DoAction(Context context,Room room,Party party, Backpack pack, Level level, BattleState battleState)
         {
             context.setState(this);
             int choice;

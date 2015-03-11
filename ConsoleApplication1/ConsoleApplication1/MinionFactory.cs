@@ -11,19 +11,25 @@ namespace ConsoleApplication1
         {
             int num = random();
             MinionBehavior minionBehavior;
+            BadGuy[] bad;
             if (num == 0)
             {
-                minionBehavior = new Minion();
+                minionBehavior = new ContainsMinion(new Minion("Minion"));
             }
             else
+            {
                 if (num == 1)
                 {
-                    minionBehavior = new MinionParty2();
+                    bad = new BadGuy[] {new Minion("Minion 1"), new Minion("Minion 2")};
+
                 }
                 else
                 {
-                    minionBehavior = new MinionParty3();
+                    bad = new BadGuy[] {new Minion("Minion 1"), new Minion("Minion 2"), new Minion("Minion 3")};
+
                 }
+                minionBehavior = new ContainsMinion(bad);
+            }
             return minionBehavior;
         }
 

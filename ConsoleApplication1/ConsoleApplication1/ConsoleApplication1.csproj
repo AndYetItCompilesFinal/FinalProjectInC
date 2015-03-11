@@ -43,10 +43,12 @@
   <ItemGroup>
     <Compile Include="Backpack.cs" />
     <Compile Include="BadGuy.cs" />
+    <Compile Include="BattleState.cs" />
     <Compile Include="BossBehavior.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="ChickenLittle.cs" />
     <Compile Include="CombatLevel.cs" />
+    <Compile Include="ContainsMinion.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="Dumbo.cs" />
     <Compile Include="Entrance.cs" />
@@ -67,8 +69,6 @@
     <Compile Include="Minion.cs" />
     <Compile Include="MinionBehavior.cs" />
     <Compile Include="MinionFactory.cs" />
-    <Compile Include="MinionParty2.cs" />
-    <Compile Include="MinionParty3.cs" />
     <Compile Include="MinionState.cs" />
     <Compile Include="Move.cs" />
     <Compile Include="NoBoss.cs" />

@@ -114,6 +114,7 @@ namespace ConsoleApplication1
                 characters.Add(party.GetParty(choice).ToString());
                 party.SetParty(character, choice);
                 Console.WriteLine(this);
+                Console.WriteLine();
             }
             else
             {

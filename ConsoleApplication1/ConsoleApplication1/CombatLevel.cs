@@ -10,10 +10,10 @@ namespace ConsoleApplication1
         public int minions;
         public MinionFactory minionFactory;
         public Party party;
-        public CombatLevel(GoodGuy disney, WeaponBehavior weapon, BossBehavior boss, int minions, int position,Party party)
+        public CombatLevel(GoodGuy disney, WeaponBehavior weapon, BossBehavior boss, int minions,Party party)
         {
             this.minionFactory = new MinionFactory();
-            this.towerPosition = position;
+
             this.disney = disney;
             this.minions = minions;
             this.party = party;

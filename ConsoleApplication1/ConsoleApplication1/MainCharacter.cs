@@ -7,42 +7,36 @@ namespace ConsoleApplication1
 {
     internal class MainCharacter : GoodGuy
     {
-        private WeaponBehavior Weapon;
-        //Weapon
+        protected WeaponBehavior Weapon;
 
-        public MainCharacter(String Name, WeaponBehavior Weapon)
+        public MainCharacter(string name, WeaponBehavior weapon)
+            : base(name, 100, 100, .5, 5, 20, "Hello", "Bye", "attack 1", "attack 2", "attack3")
         {
-            this.Weapon = Weapon;
-            Hp = 50;
-            Defense = 50;
-            Speed = 5;
-            Attack = 20;
-            this.Name = Name;
+            this.Weapon = weapon;
         }
 
-        public void SetWeapon(WeaponBehavior Weapon)
+        public void SetWeapon(WeaponBehavior weapon)
         {
-            this.Weapon = Weapon;
+            this.Weapon = weapon;
         }
 
         public override int Attack1()
         {
-            throw new NotImplementedException();
+            Console.WriteLine(this.Name+" tried to slash the enemy with his sword. ");
+            return 15;
         }
 
         public override int Attack2()
         {
-            throw new NotImplementedException();
+            Console.WriteLine(this.Name+"tried to trip the enemy. ");
+            return 5;
         }
 
         public override int Attack3()
         {
-            throw new NotImplementedException();
+            Console.WriteLine(this.Name+" tried to jump on and attack the enemy.");
+            return 5;
         }
 
-        public override int ChooseAttack()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

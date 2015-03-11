@@ -11,13 +11,33 @@ namespace ConsoleApplication1
         protected String Name;
         protected int MaxHp;
         protected int Hp;
-        protected int Defense;
+        protected double Defense;
         protected int Speed;
         protected int Attack;
-        protected bool Alive;
-        protected bool Good;
-        protected String Greeting;
-        protected String GoodBye;
+        protected string Greeting;
+        protected string GoodBye;
+        protected string AttackName1;
+        protected string AttackName2;
+        protected string AttackName3;
+
+        protected Character(string name, int maxHp, int hp, double defense, int speed, int attack,
+            string greeting, string goodbye, string attackname1, string attackname2, string attackname3)
+        {
+
+            this.Name = name;
+            this.MaxHp = maxHp;
+            this.Hp = hp;
+            this.Defense = defense;
+            this.Speed = speed;
+            this.Attack = attack;
+            this.Greeting = greeting;
+            this.GoodBye = goodbye;
+            this.AttackName1 = attackname1;
+            this.AttackName2 = attackname1;
+            this.AttackName3 = attackname3;
+
+
+        }
 
         public abstract int Attack1();
 
@@ -27,14 +47,10 @@ namespace ConsoleApplication1
 
         public abstract int ChooseAttack();
 
-        public bool IsGood()
-        {
-            return Good;
-        }
 
         public bool IsAlive()
         {
-            return Alive;
+            return Hp>0;
         }
 
         public String SayGreeting()
@@ -45,6 +61,16 @@ namespace ConsoleApplication1
         public String SayGoodBye()
         {
             return GoodBye;
+        }
+
+        public int GetStrength()
+        {
+            return this.Attack;
+        }
+
+        public int GetSpeed()
+        {
+            return this.Speed;
         }
 
         public override string ToString()
@@ -66,16 +92,16 @@ namespace ConsoleApplication1
             if (this.Hp > 0) return true;
 
             this.Hp = 0;
-            if (this.Good == true)
-            {
-                Console.WriteLine(Name + " has fallen!");
-                return false;
-            }
-            else
-            {
-                Console.WriteLine(Name + " has been defeated!");
-                return false;
-            }
+            //if (this.Good == true)
+            //{
+            //    Console.WriteLine(Name + " has fallen!");
+            //    return false;
+            //}
+            //else
+            //{
+            Console.WriteLine(Name + " has been defeated!");
+            return false;
+            //}
         }
     }
 }

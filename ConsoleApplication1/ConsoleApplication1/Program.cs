@@ -18,6 +18,7 @@ namespace ConsoleApplication1
 
             
             Backpack pack=new Backpack();
+            BadGuy hades=new Hades();
 
             ////make tower
             Tower tower=new Tower(pack,party);

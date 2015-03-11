@@ -20,6 +20,7 @@ namespace ConsoleApplication1
         MinionState minionState = new MinionState();
         ExitState exitState = new ExitState();
         UniqueState uniqueState = new UniqueState();
+        BattleState battleState = new BattleState();
 
         public abstract bool objective();
 
@@ -130,29 +131,29 @@ namespace ConsoleApplication1
             Console.WriteLine(level[row,col]);
             if (!(level[row, col].potion is NoPotion))
             {
-                potionState.DoAction(context, level[row, col], party, pack, this);
+                potionState.DoAction(context, level[row, col], party, pack, this, battleState);
                 //potionstate
             }//end of if
 
             if (!(level[row, col].weapon is NoWeapon))
             {
-                weaponState.DoAction(context, level[row, col], party, pack, this);
+                weaponState.DoAction(context, level[row, col], party, pack, this, battleState);
                 //weaponstate
             }//end of if
             if (!(level[row, col].minion is NoMinions))
             {
-                minionState.DoAction(context, level[row, col], party, pack, this);
+                minionState.DoAction(context, level[row, col], party, pack, this, battleState);
                 //minionorbattlestate
             }
             //int index;
             if (level[row, col].unique is UniqueItem)
             {
-                uniqueState.DoAction(context, level[row, col], party, pack, this);
+                uniqueState.DoAction(context, level[row, col], party, pack, this, battleState);
                 //uniquestate
             }
             if (level[row, col].type is Exit)
             {
-                return exitState.DoAction(context, level[row, col], party, pack, this);
+                return exitState.DoAction(context, level[row, col], party, pack, this, battleState);
                 //exitstate
             }//end 
             Console.WriteLine(this);
