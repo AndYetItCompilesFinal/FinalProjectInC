@@ -10,11 +10,11 @@ namespace ConsoleApplication1
         public PeterPan()
         {
             Name = "Peter Pan";
-            MaxHp = 50;
-            Hp = 50;
-            Defense = 50;
-            Speed = 5;
-            Attack = 20;
+            MaxHp = 50;      //health 30
+            Hp = 50;         //hp 30
+            Defense = 50;    //defense 1
+            Speed = 5;       //speed 20
+            Attack = 20;     //attack 30
             Alive = true;
             Good = true;
             attackName1 = "ATTACK ONE NAME";

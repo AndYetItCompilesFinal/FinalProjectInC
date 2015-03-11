@@ -10,11 +10,11 @@ namespace ConsoleApplication1
         public ChickenLittle()
         {
             Name = "Chicken Little";
-            MaxHp = 50;
-            Hp = 50;
-            Defense = 50;
-            Speed = 5;
-            Attack = 20;
+            MaxHp = 50;    //maxHp 40
+            Hp = 50;       //hp 40
+            Defense = 50; //defense 2
+            Speed = 5;    //speed 30
+            Attack = 20;  //attack 35
             Alive = true;
             Good = true;
             attackName1 = "ATTACK ONE NAME";

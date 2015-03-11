@@ -10,11 +10,11 @@ namespace ConsoleApplication1
         public Dumbo()
         {
             Name = "Dumbo";
-            MaxHp = 50;
-            Hp = 50;
-            Defense = 50;
-            Speed = 5;
-            Attack = 20;
+            MaxHp = 50;      //maxhp 60
+            Hp = 50;         //hp 60
+            Defense = 50;    //defense 10
+            Speed = 5;      //speed 5
+            Attack = 20;   //attack 5
             Alive = true;
             Good = true;
             attackName1 = "ATTACK ONE NAME";

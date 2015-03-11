@@ -10,11 +10,11 @@ namespace ConsoleApplication1
         public Pluto()
         {
             Name = "Pluto";
-            MaxHp = 50;
-            Hp = 50;
-            Defense = 50;
-            Speed = 5;
-            Attack = 20;
+            MaxHp = 50;      //health 50
+            Hp = 50;         //hp 50
+            Defense = 50;    //defense 3
+            Speed = 5;       //speed 20
+            Attack = 20;     //attack 13
             Alive = true;
             Good = true;
             attackName1 = "ATTACK ONE NAME";
