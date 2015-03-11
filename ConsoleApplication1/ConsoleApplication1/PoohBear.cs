@@ -10,11 +10,11 @@ namespace ConsoleApplication1
         public PoohBear()
         {
             Name = "Pooh Bear";
-            MaxHp = 50;
-            Hp = 50;
-            Defense = 50;
-            Speed = 5;
-            Attack = 20;
+            MaxHp = 50;   //max hp 70
+            Hp = 50;      //hp 70
+            Defense = 50; //defense 15
+            Speed = 5;    //speed .5
+            Attack = 20;  //attack 7
             Alive = true;
             Good = true;
             attackName1 = "ATTACK ONE NAME";
