@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     class Hercules : GoodGuy
     {
         public Hercules()
-            : base("Hercules", 100, 100, .5, 5, 20, "Hello", "Bye", "attack 1", "attack 2", "attack3")
+            : base("Hercules", 100, 100, .7, 10, 4, "Hello", "Bye", "attack 1", "attack 2", "attack3")
         {
         }
 

@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     class Pluto : GoodGuy
     {
         public Pluto()
-            : base("Pluto", 100, 100, .5, 5, 20, "Hello", "Bye", "attack 1", "attack 2", "attack3")
+            : base("Pluto", 75, 75, .6, 15, 13, "Hello", "Bye", "attack 1", "attack 2", "attack3")
         {
  
         }

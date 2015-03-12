@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     class PeterPan : GoodGuy
     {
         public PeterPan()
-            : base("Peter Pan", 100, 100, .5, 5, 20, "Hello", "Bye", "attack 1", "attack 2", "attack3")
+            : base("Peter Pan", 50, 50, .2, 20, 20, "Hello", "Bye", "attack 1", "attack 2", "attack3")
         {
   
         }

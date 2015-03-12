@@ -7,7 +7,7 @@ namespace ConsoleApplication1
 {
     internal class Dumbo : GoodGuy
     {
-        public Dumbo() : base("Dumbo", 100, 100, .5, 5, 20, "Hello", "Bye", "attack 1", "attack 2", "attack3")
+        public Dumbo() : base("Dumbo", 100, 100, .7, 4, 8, "Hello", "Bye", "attack 1", "attack 2", "attack3")
         {
         }
         public override int Attack1()

@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     class Stitch : GoodGuy
     {
         public Stitch()
-            : base("Stitch", 100, 100, .5, 5, 20, "Hello", "Bye", "attack 1", "attack 2", "attack3")
+            : base("Stitch", 75, 75, .5, 20, 10, "Hello", "Bye", "attack 1", "attack 2", "attack3")
         {
 
         }

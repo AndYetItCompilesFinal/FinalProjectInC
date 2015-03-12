@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     class MrIncerdible:GoodGuy
     {
         public MrIncerdible()
-            : base("Mr Incredible", 100, 100, .5, 5, 20, "Hello", "Bye", "attack 1", "attack 2", "attack3")
+            : base("Mr Incredible", 100, 100, .6, 8, 11, "Hello", "Bye", "attack 1", "attack 2", "attack3")
         {
         }
 

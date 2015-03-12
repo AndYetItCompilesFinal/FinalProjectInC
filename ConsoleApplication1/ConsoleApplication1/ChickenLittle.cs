@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     class ChickenLittle : GoodGuy
     {
         public ChickenLittle()
-            : base("Chicken Little", 100, 100, .5, 5, 20, "Hello", "Bye", "attack 1", "attack 2", "attack3")
+            : base("Chicken Little", 50, 50, .3, 13, 18, "Hello", "Bye", "attack 1", "attack 2", "attack3")
         {
     
         }

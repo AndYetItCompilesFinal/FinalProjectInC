@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     class RobinHood : GoodGuy
     {
         public RobinHood()
-            : base("Robin Hood", 100, 100, .5, 5, 20, "Hello", "Bye", "attack 1", "attack 2", "attack3")
+            : base("Robin Hood", 50, 50, .3, 20, 20, "Hello", "Bye", "attack 1", "attack 2", "attack3")
         {
 
         }

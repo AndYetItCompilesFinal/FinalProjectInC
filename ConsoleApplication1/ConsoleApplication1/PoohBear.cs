@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     class PoohBear : GoodGuy
     {
         public PoohBear()
-            : base("Pooh Bear", 100, 100, .5, 5, 20, "Hello", "Bye", "attack 1", "attack 2", "attack3")
+            : base("Pooh Bear", 100, 100, .3, 5, 7, "Hello", "Bye", "attack 1", "attack 2", "attack3")
         {
         }
 

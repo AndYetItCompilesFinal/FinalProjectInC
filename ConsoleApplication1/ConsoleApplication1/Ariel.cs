@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     class Ariel:GoodGuy
     {
          public Ariel()
-            : base("Ariel", 100, 100, .5, 5, 20, "Hello", "Bye", "attack 1", "attack 2", "attack3")
+            : base("Ariel", 50, 50, .4, 18, 17, "Hello", "Bye", "attack 1", "attack 2", "attack3")
         {
         }
 

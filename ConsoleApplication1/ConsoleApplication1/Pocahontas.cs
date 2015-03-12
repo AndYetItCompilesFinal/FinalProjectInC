@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     class Pocahontas : GoodGuy
     {
         public Pocahontas()
-            : base("Pocahontas", 100, 100, .5, 5, 20, "Hello", "Bye", "attack 1", "attack 2", "attack3")
+            : base("Pocahontas", 50, 50, .5, 20, 16, "Hello", "Bye", "attack 1", "attack 2", "attack3")
         {
 
         }
