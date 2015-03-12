@@ -22,11 +22,10 @@ namespace ConsoleApplication1
                 createUniqueItems(item);
             }
             changenulls();
-            printLevelObjective();
         }
 
 
-        public void printLevelObjective()
+        public override void printLevelObjective()
         {
             Console.WriteLine(disney + " needs your help!!\n");
             Console.WriteLine("Find these items for " + disney + ":");

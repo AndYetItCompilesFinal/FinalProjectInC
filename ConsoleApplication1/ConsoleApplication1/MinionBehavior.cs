@@ -12,11 +12,16 @@ namespace ConsoleApplication1
         public BadGuy Minion;
         public BadGuy[] Minions;
 
+        public int GetMinions()
+        {
+            return this.Numofminions;
+        }
 
         public override string ToString()
         {
             return ", " + Description;
         }
+ 
 
     }
 }

@@ -24,6 +24,13 @@ namespace ConsoleApplication1
             }
             changenulls();
         }
+
+        public override void printLevelObjective()
+        {
+            Console.WriteLine(this.disney+" needs your help!!\n");
+            Console.WriteLine("Defeat "+minions+" Minions");
+        }
+
         public void createMinions()
         {
             int row, col;

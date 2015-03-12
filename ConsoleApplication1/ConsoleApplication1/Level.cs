@@ -23,6 +23,7 @@ namespace ConsoleApplication1
         BattleState battleState = new BattleState();
 
         public abstract bool objective();
+        public abstract void printLevelObjective();
 
         public void initialize(WeaponBehavior weapon, BossBehavior boss)
         {
