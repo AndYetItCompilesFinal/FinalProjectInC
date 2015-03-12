@@ -190,8 +190,6 @@ namespace ConsoleApplication1
             // choose hero to attack
             int choice = ((int)(Rand.NextDouble() * 3));
             bool survived = true;
-            do
-            {
                 if (good.GetParty(choice).IsAlive())
                 {
                     if (good.GetParty(choice).DodgeAttempt())
@@ -204,7 +202,6 @@ namespace ConsoleApplication1
                         survived = good.GetParty(choice).ApplyDamage(damageValue);
                     }
                 }
-            } while (!good.GetParty(choice).IsAlive());
             return survived;
         }
 
