@@ -1,62 +1,125 @@
         Stitch
-            MaxHp = 50;      //health 50
-            Hp = 50;         //hp 50
-            Defense = 50;    //defense 5
-            Speed = 5;       //speed 15
+            MaxHp = 50;      //health 75
+            Hp = 50;         //hp 75
+            Defense = 50;    //defense .5
+            Speed = 5;       //speed 20
             Attack = 20;     //attack 10
 
 		
         Pluto
-            MaxHp = 50;      //health 50
-            Hp = 50;         //hp 50
-            Defense = 50;    //defense 3
-            Speed = 5;       //speed 20
+            MaxHp = 50;      //health 75
+            Hp = 50;         //hp 75
+            Defense = 50;    //defense .6
+            Speed = 5;       //speed 15
             Attack = 20;     //attack 13
  
 		
-		PeterPan
-            MaxHp = 50;      //health 30
-            Hp = 50;         //hp 30
-            Defense = 50;    //defense 1
-            Speed = 5;       //speed 20
-            Attack = 20;     //attack 30
-		
-        Hades
+	PeterPan
             MaxHp = 50;      //health 50
             Hp = 50;         //hp 50
-            Defense = 50;    //defense 10
-            Speed = 5;       //speed 10
-            Attack = 20;     //attack 10
+            Defense = 50;    //defense .2
+            Speed = 5;       //speed 20
+            Attack = 20;     //attack 20
+		
+        Hades
+            MaxHp = 50;      //health 100
+            Hp = 50;         //hp 100
+            Defense = 50;    //defense .8
+            Speed = 5;       //speed 19
+            Attack = 20;     //attack 15
 			
 		
         Dumbo
-            MaxHp = 50;      //maxhp 60
-            Hp = 50;         //hp 60
-            Defense = 50;    //defense 10
-            Speed = 5;      //speed 5
-            Attack = 20;   //attack 5
+            MaxHp = 50;      //maxhp 100
+            Hp = 50;         //hp 100
+            Defense = 50;    //defense .7
+            Speed = 5;       //speed 4
+            Attack = 20;     //attack 8
 			
 		
         ChickenLittle
-            MaxHp = 50;    //maxHp 40
-            Hp = 50;       //hp 40
-            Defense = 50; //defense 2
-            Speed = 5;    //speed 30
-            Attack = 20;  //attack 35
+            MaxHp = 50;      //maxHp 50
+            Hp = 50;         //hp 50
+            Defense = 50;    //defense .3
+            Speed = 5;       //speed 13
+            Attack = 20;     //attack 18
         
 		
         PoohBear
-            MaxHp = 50;   //max hp 70
-            Hp = 50;      //hp 70
-            Defense = 50; //defense 15
-            Speed = 5;    //speed .5
+            MaxHp = 50;   //max hp 100
+            Hp = 50;      //hp 100
+            Defense = 50; //defense .3
+            Speed = 5;    //speed 5
             Attack = 20;  //attack 7
    
 		
          Pocahontas
-            MaxHp = 50;   //max hp 25
-            Hp = 50;      //hp 25
-            Defense = 50; //defense 3
-            Speed = 5;    //speed 40
-            Attack = 20;  //attack 28
+            MaxHp = 50;   //max hp 50
+            Hp = 50;      //hp 50
+            Defense = 50; //defense .5
+            Speed = 5;    //speed 20
+            Attack = 20;  //attack 16
+
+
+	Aladdin
+	    MaxHp = 50;   //max hp 50
+            Hp = 50;      //hp 50
+            Defense = 50; //defense .3
+            Speed = 5;    //speed 12
+            Attack = 20;  //attack 14
+	
+	Ariel
+	    MaxHp = 50;   //max hp 50
+            Hp = 50;      //hp 50
+            Defense = 50; //defense .4
+            Speed = 5;    //speed 18
+            Attack = 20;  //attack 17
+	
+
+	Belle
+	    MaxHp = 50;   //max hp 50
+            Hp = 50;      //hp 50
+            Defense = 50; //defense .5
+            Speed = 5;    //speed 16
+            Attack = 20;  //attack 12
+
+	
+	Robin Hood
+	    MaxHp = 50;   //max hp 50
+            Hp = 50;      //hp 50
+            Defense = 50; //defense .3
+            Speed = 5;    //speed 20
+            Attack = 20;  //attack 20
+	
+
+	Simba
+	    MaxHp = 50;   //max hp 100
+            Hp = 50;      //hp 100
+            Defense = 50; //defense .6
+            Speed = 5;    //speed 20
+            Attack = 20;  //attack 18
+	
+
+	Hercules
+	    MaxHp = 50;   //max hp 100
+            Hp = 50;      //hp 100
+            Defense = 50; //defense .7
+            Speed = 5;    //speed 10
+            Attack = 20;  //attack 4
+	
+
+	Mike
+	    MaxHp = 50;   //max hp 75
+            Hp = 50;      //hp 75
+            Defense = 50; //defense .4
+            Speed = 5;    //speed 15
+            Attack = 20;  //attack 19
+
+
+	Mr. Incredible
+	    MaxHp = 50;   //max hp 100
+            Hp = 50;      //hp 100
+            Defense = 50; //defense .6
+            Speed = 5;    //speed 8
+            Attack = 20;  //attack 11	
             

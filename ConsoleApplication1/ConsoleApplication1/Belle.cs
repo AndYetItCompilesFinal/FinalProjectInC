@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     class Belle:GoodGuy
     {
         public Belle()
-            : base("Belle", 100, 100, .5, 5, 20, "Hello", "Bye", "attack 1", "attack 2", "attack3")
+            : base("Belle", 50, 50, .5, 16, 12, "Hello", "Bye", "attack 1", "attack 2", "attack3")
         {
 
         }

@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     class Mike:GoodGuy
     {
         public Mike()
-            : base("Mike Wazowski", 100, 100, .5, 5, 20, "Hello", "Bye", "attack 1", "attack 2", "attack3")
+            : base("Mike Wazowski", 75, 75, .4, 15, 19, "Hello", "Bye", "attack 1", "attack 2", "attack3")
         {
 
         }

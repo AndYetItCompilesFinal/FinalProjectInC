@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     class Simba:GoodGuy
     {
              public Simba()
-            : base("Simba", 100, 100, .5, 5, 20, "Hello", "Bye", "attack 1", "attack 2", "attack3")
+            : base("Simba", 100, 100, .6, 20, 18, "Hello", "Bye", "attack 1", "attack 2", "attack3")
         {
         }
 

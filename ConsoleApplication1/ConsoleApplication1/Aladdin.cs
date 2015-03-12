@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     class Aladdin:GoodGuy
     {
         public Aladdin()
-            : base("Aladdin", 100, 100, .5, 5, 20, "Hello", "Bye", "attack 1", "attack 2", "attack3")
+            : base("Aladdin", 50, 50, .3, 12, 14, "Hello", "Bye", "Use Sword", "Trip Enemy", "Physical Attack")
         {
 
         }
