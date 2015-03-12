@@ -39,7 +39,7 @@ namespace ConsoleApplication1
             switch (choice)
             {
                 case 1:
-                    MainCharacter main = (MainCharacter)party.GetMain();
+                    MainCharacter main = (MainCharacter)party.GetParty(0);
                     main.SetWeapon(room.weapon);
                     room.weapon = new NoWeapon();
                     room.size--;

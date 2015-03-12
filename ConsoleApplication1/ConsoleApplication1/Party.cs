@@ -40,13 +40,6 @@ namespace ConsoleApplication1
             return str;
         }
 
-
-        //do we really need this?????
-        public GoodGuy GetMain()
-        {
-            return (MainCharacter)GetParty(0);
-        }
-
         //returns true if the party is still alive within battle
         public bool PartyAlive()
         {
