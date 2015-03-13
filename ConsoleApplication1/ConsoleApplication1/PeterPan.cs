@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     class PeterPan : GoodGuy
     {
         public PeterPan()
-            : base("Peter Pan", 50, 50, .2, 20, 20, "Hello", "Bye", "attack 1", "attack 2", "attack3")
+            : base("Peter Pan", 50, 50, .2, 20, 20, "Hello", "Bye", "Sword", "Shadow Attack", "Duel")
         {
   
         }
@@ -20,13 +20,13 @@ namespace ConsoleApplication1
 
         public override int Attack2()
         {
-            Console.WriteLine(this.Name + "tried to trip the enemy. ");
+            Console.WriteLine(this.Name + "tried to attack the enemy with his shadow. ");
             return 5;
         }
 
         public override int Attack3()
         {
-            Console.WriteLine(this.Name + " tried to jump on and attack the enemy.");
+            Console.WriteLine(this.Name + " tried to duel with the enemy.");
             return 5;
         }
 

@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     internal class KingRichard:BossBehavior
     {
         public KingRichard()
-            : base("King Richard", 100, 100, .8, 19, 15, "Hello", "Bye", "Use Sword", "Trip Enemy", "Physical Attack")
+            : base("King Richard", 100, 100, .8, 19, 15, "Hello", "Bye", "Use Sword", "Kick", "Hundred Hand Slap")
         {
 
         }
@@ -20,13 +20,13 @@ namespace ConsoleApplication1
 
         public override int Attack2()
         {
-            Console.WriteLine(this.Name + "tried to trip the enemy. ");
+            Console.WriteLine(this.Name + "tried to kick the enemy. ");
             return 5;
         }
 
         public override int Attack3()
         {
-            Console.WriteLine(this.Name + " tried to jump on and attack the enemy.");
+            Console.WriteLine(this.Name + " tried to slap the enemy.");
             return 5;
         }
     }

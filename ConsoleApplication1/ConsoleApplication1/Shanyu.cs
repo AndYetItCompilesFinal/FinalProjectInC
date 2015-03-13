@@ -8,13 +8,13 @@ namespace ConsoleApplication1
     internal class Shanyu:BossBehavior
     {
         public Shanyu()
-            : base("Shanyu", 100, 100, .8, 19, 15, "Hello", "Bye", "Use Sword", "Trip Enemy", "Physical Attack")
+            : base("Shanyu", 100, 100, .8, 19, 15, "Hello", "Bye", "Ninja Status", "Trip Enemy", "Sword")
         {
 
         }
         public override int Attack1()
         {
-            Console.WriteLine(this.Name + " tried to slash the enemy with his sword. ");
+            Console.WriteLine(this.Name + " tried to use ninja moves on his enemy. ");
             return 15;
         }
 
@@ -26,7 +26,7 @@ namespace ConsoleApplication1
 
         public override int Attack3()
         {
-            Console.WriteLine(this.Name + " tried to jump on and attack the enemy.");
+            Console.WriteLine(this.Name + " tried to slash the enemy with his sword.");
             return 5;
         }
     }

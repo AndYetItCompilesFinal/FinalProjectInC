@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     internal class CaptainHook:BossBehavior
     {
         public CaptainHook()
-            : base("Captain Hook", 100, 100, .8, 19, 15, "Hello", "Bye", "Use Sword", "Trip Enemy", "Physical Attack")
+            : base("Captain Hook", 100, 100, .8, 19, 15, "Hello", "Bye", "Use Sword", "Trip Enemy", "Cannon")
         {
 
         }
@@ -26,7 +26,7 @@ namespace ConsoleApplication1
 
         public override int Attack3()
         {
-            Console.WriteLine(this.Name + " tried to jump on and attack the enemy.");
+            Console.WriteLine(this.Name + " tried to shoot a cannon at his enemy.");
             return 5;
         }
     }
