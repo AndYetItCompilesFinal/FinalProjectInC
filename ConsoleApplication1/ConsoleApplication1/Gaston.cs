@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     internal class Gaston:BossBehavior
     {
         public Gaston()
-            : base("Gaston", 100, 100, .8, 19, 15, "Hello", "Bye", "Use Sword", "Trip Enemy", "Physical Attack")
+            : base("Gaston", 100, 100, .8, 19, 15, "Hello", "Bye", "Use Sword", "Rage", "Gun")
         {
 
         }
@@ -20,13 +20,13 @@ namespace ConsoleApplication1
 
         public override int Attack2()
         {
-            Console.WriteLine(this.Name + "tried to trip the enemy. ");
+            Console.WriteLine(this.Name + "tried to use his rage to overpower his enemy. ");
             return 5;
         }
 
         public override int Attack3()
         {
-            Console.WriteLine(this.Name + " tried to jump on and attack the enemy.");
+            Console.WriteLine(this.Name + " tried to use his shotgun on his enemy.");
             return 5;
         }
     }

@@ -8,25 +8,25 @@ namespace ConsoleApplication1
     internal class Syndrome:BossBehavior
     {
         public Syndrome()
-            : base("Syndrome", 100, 100, .8, 19, 15, "Hello", "Bye", "Use Sword", "Trip Enemy", "Physical Attack")
+            : base("Syndrome", 100, 100, .8, 19, 15, "Hello", "Bye", "Stun", "Bomb", "Machine of Death")
         {
 
         }
         public override int Attack1()
         {
-            Console.WriteLine(this.Name + " tried to slash the enemy with his sword. ");
+            Console.WriteLine(this.Name + " tried to stun his enemy. ");
             return 15;
         }
 
         public override int Attack2()
         {
-            Console.WriteLine(this.Name + "tried to trip the enemy. ");
+            Console.WriteLine(this.Name + "tried to throw a bomb at his enemy. ");
             return 5;
         }
 
         public override int Attack3()
         {
-            Console.WriteLine(this.Name + " tried to jump on and attack the enemy.");
+            Console.WriteLine(this.Name + " tried to activate his machine to destroy his enemy.");
             return 5;
         }
     }
