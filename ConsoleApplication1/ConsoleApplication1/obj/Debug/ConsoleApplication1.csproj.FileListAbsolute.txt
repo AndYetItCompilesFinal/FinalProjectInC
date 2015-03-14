@@ -19,3 +19,9 @@ C:\Users\Admin00\Documents\GitHub\FinalProjectInC\ConsoleApplication1\ConsoleApp
 \\netstorage.eastern.ewu.edu\mfloyd42\GitHub\FinalProjectInC\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
 \\netstorage.eastern.ewu.edu\mfloyd42\GitHub\FinalProjectInC\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
 \\netstorage.eastern.ewu.edu\mfloyd42\GitHub\FinalProjectInC\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\Zoe\Documents\GitHub\FinalProjectInC\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\Users\Zoe\Documents\GitHub\FinalProjectInC\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\Zoe\Documents\GitHub\FinalProjectInC\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+C:\Users\Zoe\Documents\GitHub\FinalProjectInC\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
+C:\Users\Zoe\Documents\GitHub\FinalProjectInC\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\Zoe\Documents\GitHub\FinalProjectInC\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb

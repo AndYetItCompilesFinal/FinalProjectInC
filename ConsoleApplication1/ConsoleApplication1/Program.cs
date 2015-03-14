@@ -15,8 +15,10 @@ namespace ConsoleApplication1
             Party party = partyfactory.CreateParty();
             Console.WriteLine(party);
             Console.WriteLine();
+
             
             Backpack pack=new Backpack();
+            BadGuy hades=new Hades();
 
             ////make tower
             Tower tower=new Tower(pack,party);
@@ -24,7 +26,6 @@ namespace ConsoleApplication1
             GameOptions mainMenu = new GameOptions(move, pack, party);
             foreach(Level level in tower)
             {
-                level.printLevelObjective();
                 Console.WriteLine(level);
                 move.findEntrance(level);
                 mainMenu.run();
