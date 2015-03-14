@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     public abstract class GoodGuy : Character
     {
         protected GoodGuy(string name, int maxHp, int hp, double defense, int speed, int attack,
-            string greeting, string goodbye, string attackname1, string attackname2, string attackname3): base(name,maxHp,hp,defense,speed,attack,greeting,goodbye,attackname1,attackname2,attackname3)
+             string attackname1, string attackname2, string attackname3): base(name,maxHp,hp,defense,speed,attack,attackname1,attackname2,attackname3)
         {
           
         }
@@ -16,24 +16,10 @@ namespace ConsoleApplication1
 
         public String PrintStats()
         {
-            return Name + "\n" + "HP: " + this.Hp + "\nDefense: " + this.Defense + "\nSpeed: " + this.Speed +
-                   "\nAttack: " + this.Attack;
+            return this.GetName() + "\n" + "HP: " + this.GetHp() + "\nDefense: " + this.GetDefense() + "\nSpeed: " + this.GetSpeed() +
+                   "\nAttack: " + this.GetAttack();
         }
 
-        public void AddHp(int h)
-        {
-            Hp = Hp + h;
-            if (Hp >= MaxHp)
-            {
-                Hp = MaxHp;
-                Console.WriteLine(Name + " was fully healed!");
-            }
-            else
-            {
-                Console.WriteLine(Name + " has healed " + h + "hit points. They are at " + Hp + " out of " + MaxHp +
-                                  " hit points.");
-            }
-        }
 
         public override int ChooseAttack()
         {
@@ -41,9 +27,9 @@ namespace ConsoleApplication1
             while (att < 1 || att > 3)
             {
                 Console.WriteLine("Choose your Attack!");
-                Console.WriteLine("1. " + this.AttackName1);
-                Console.WriteLine("2. " + this.AttackName2);
-                Console.WriteLine("3. " + this.AttackName3);
+                Console.WriteLine("1. " + GetAttackName1());
+                Console.WriteLine("2. " + GetAttackName2());
+                Console.WriteLine("3. " + GetAttackName3());
                 Console.WriteLine("Enter number now: ");
                 bool tryParse = int.TryParse(Console.ReadLine(), out att);
                 if (!tryParse)

@@ -10,11 +10,10 @@ namespace ConsoleApplication1
         public MinionBehavior createParty()
         {
             int num = random();
-            MinionBehavior minionBehavior;
             BadGuy[] bad;
             if (num == 0)
             {
-                minionBehavior = new ContainsMinion(new Minion("Minion"));
+                bad = new  BadGuy[] {new Minion("Minion")};
             }
             else
             {
@@ -28,9 +27,9 @@ namespace ConsoleApplication1
                     bad = new BadGuy[] {new Minion("Minion 1"), new Minion("Minion 2"), new Minion("Minion 3")};
 
                 }
-                minionBehavior = new ContainsMinion(bad);
+                
             }
-            return minionBehavior;
+            return new ContainsMinion(bad); ;
         }
 
 

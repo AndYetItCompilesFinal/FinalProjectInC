@@ -7,10 +7,10 @@ namespace ConsoleApplication1
 {
     class GameOptions
     {
-        public Move move;
-        public bool end;
-        public Backpack pack;
-        public Party party;
+        private Move move;
+        private bool end;
+        private Backpack pack;
+        private Party party;
         public GameOptions(Move move, Backpack pack, Party party)
         {
             this.party = party;

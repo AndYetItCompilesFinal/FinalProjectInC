@@ -7,29 +7,31 @@ namespace ConsoleApplication1
 {
     public abstract class Level
     {
-        public Room[,] level = new Room[5, 5];
-        public int towerPosition;
-        public GoodGuy disney;
-        WeaponBehavior noWeapon = new NoWeapon();
-        MinionBehavior noMinion = new NoMinions();
-        BossBehavior noBoss = new NoBoss();
-        UniqueLevelItemBehavior noUnique = new NoUniqueItems();
-        PotionBehavior noPotion = new NoPotion();
-        PotionState potionState = new PotionState();
-        WeaponState weaponState = new WeaponState();
-        MinionState minionState = new MinionState();
-        ExitState exitState = new ExitState();
-        UniqueState uniqueState = new UniqueState();
-        BattleState battleState = new BattleState();
+        private Room[,] level = new Room[5, 5];
+        private int towerPosition;
+        private GoodGuy disney;
+        private BadGuy boss;
+        private MinionBehavior noMinion = new NoMinions();
+        private UniqueLevelItemBehavior noUnique = new NoUniqueItems();
+        private PotionBehavior noPotion = new NoPotion();
+        private PotionState potionState = new PotionState();
+        private MinionState minionState = new MinionState();
+        private ExitState exitState = new ExitState();
+        private UniqueState uniqueState = new UniqueState();
+        private BattleState battleState = new BattleState();
 
         public abstract bool objective();
         public abstract void printLevelObjective();
-
-        public void initialize(WeaponBehavior weapon, BossBehavior boss)
+        public Level(GoodGuy disney)
         {
+            this.disney = disney;
+        }
+
+        public void initialize(BadGuy boss)
+        {
+            this.boss = boss;
             entrance();
-            exit(boss);
-            levelWeapon(weapon);
+            exit();
             generateRooms();
             potion(new HealthPotionHP10());//10hp
             potion(new HealthPotionHP15());//15hp
@@ -42,7 +44,7 @@ namespace ConsoleApplication1
             int col = random();
             this.level[row, col] = new Room(row, col, new Entrance());
         }
-        public void exit(BossBehavior boss)
+        public void exit()
         {
             int row, col;
             do
@@ -51,19 +53,6 @@ namespace ConsoleApplication1
                 col = random();
             } while (this.level[row, col] != null);
             this.level[row, col] = new Room(row, col, new Exit());
-            this.level[row, col].boss = boss;
-        }
-        public void levelWeapon(WeaponBehavior weapon)
-        {
-            int row, col;
-            do
-            {
-                row = random();
-                col = random();
-            } while (this.level[row, col] != null);
-            this.level[row, col] = new Room(row, col, new GenericRoom());
-            this.level[row, col].weapon = weapon;
-            this.level[row, col].size++;
         }
         public void generateRooms()
         {
@@ -85,9 +74,9 @@ namespace ConsoleApplication1
             {
                 row = random();
                 col = random();
-            } while (!(this.level[row, col].type is GenericRoom) || !(this.level[row, col].potion == null));
-            this.level[row, col].potion = potion;
-            this.level[row, col].size++;
+            } while (!(this.level[row, col].GetRoomType() is GenericRoom) || !(this.level[row, col].GetPotion() == null));
+            this.level[row, col].SetPotion(potion);
+            this.level[row, col].AddSize();
         }
         public void changenulls()
         {
@@ -95,66 +84,54 @@ namespace ConsoleApplication1
             {
                 for (int col = 0; col < level.GetLength(1); col++)
                 {
-
-                    if (this.level[row, col].weapon == null)
+                    if (this.level[row, col].GetMinion() == null)
                     {
-                        this.level[row, col].weapon = noWeapon;
+                        this.level[row, col].SetMinion(noMinion);
                     }
-                    if (this.level[row, col].minion == null)
+                    if (this.level[row, col].GetUnique()==null)
                     {
-                        this.level[row, col].minion = noMinion;
-                    }
-                    if (this.level[row, col].boss == null)
-                    {
-                        this.level[row, col].boss = noBoss;
-                    }
-                    if (this.level[row, col].unique == null)
-                    {
-                        this.level[row, col].unique = noUnique;
+                        this.level[row, col].SetUnique(noUnique);
                     }
 
-                    if (this.level[row, col].potion == null)
+                    if (this.level[row, col].GetPotion() == null)
                     {
-                        this.level[row, col].potion = noPotion;
+                        this.level[row, col].SetPotion(noPotion);
                     }
                 }//inner for loop
             }//outer for loop
         }
-
-        public Room[,] getTwoD()
+        public GoodGuy GetDisney()
         {
-            return this.level;
+            return disney;
+        }
+        public Room[,] GetLevel()
+        {
+            return level;
         }
         public bool executeRoom(Context context, int row, int col, Party party, Backpack pack)
         {
             //backpack
             //party
             Console.WriteLine(level[row,col]);
-            if (!(level[row, col].potion is NoPotion))
+            if (!(level[row, col].GetPotion() is NoPotion))
             {
-                potionState.DoAction(context, level[row, col], party, pack, this, battleState);
+                potionState.DoAction(context, level[row, col], party, pack, this, battleState,null);
                 //potionstate
             }//end of if
-
-            if (!(level[row, col].weapon is NoWeapon))
+            if (!(level[row, col].GetMinion() is NoMinions))
             {
-                weaponState.DoAction(context, level[row, col], party, pack, this, battleState);
-                //weaponstate
-            }//end of if
-            if (!(level[row, col].minion is NoMinions))
-            {
-                minionState.DoAction(context, level[row, col], party, pack, this, battleState);
+                minionState.DoAction(context, level[row, col], party, pack, this, battleState,null);
                 //minionorbattlestate
             }
             //int index;
-            if (level[row, col].unique is UniqueItem)
+            if (level[row, col].GetUnique() is UniqueItem)
             {
-                uniqueState.DoAction(context, level[row, col], party, pack, this, battleState);
+                uniqueState.DoAction(context, level[row, col], party, pack, this, battleState,null);
                 //uniquestate
             }
-            if (level[row, col].type is Exit)
+            if (level[row, col].GetRoomType() is Exit)
             {
-                return exitState.DoAction(context, level[row, col], party, pack, this, battleState);
+                return exitState.DoAction(context, level[row, col], party, pack, this, battleState,new BadGuy[]{this.boss});
                 //exitstate
             }//end 
             Console.WriteLine(this);
@@ -164,31 +141,27 @@ namespace ConsoleApplication1
         public String itemType(Room room)
         {
 
-            if (room.type is Entrance)
+            if (room.GetRoomType() is Entrance)
             {
                 return "I";
             }
-            if (room.type is Exit)
+            if (room.GetRoomType() is Exit)
             {
                 return "O";
             }
-            if (room.size > 1)
+            if (room.GetSize() > 1)
             {
                 return "M";
             }
-            else if (room.unique is UniqueItem)
+            else if (room.GetUnique() is UniqueItem)
             {
                 return "U";
             }
-            else if (!(room.potion is NoPotion))
+            else if (!(room.GetPotion() is NoPotion))
             {
                 return "P";
             }
-            else if (!(room.weapon is NoWeapon))
-            {
-                return "W";
-            }
-            else if (!(room.minion is NoMinions))
+            else if (!(room.GetMinion() is NoMinions))
             {
                 return "B";
             }

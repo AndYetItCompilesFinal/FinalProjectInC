@@ -7,7 +7,11 @@ namespace ConsoleApplication1
 {
     public abstract class RoomTypeBehavior
     {
-        public string description;
+        private string description;
+        public RoomTypeBehavior(string description)
+        {
+            this.description = description;
+        }
         public override string ToString()
         {
             return this.description;

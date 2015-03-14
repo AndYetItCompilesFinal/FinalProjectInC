@@ -18,10 +18,5 @@ namespace ConsoleApplication1
         {
             this.state = state;
         }
-
-        public State getState()
-        {
-            return state;
-        }
     }
 }

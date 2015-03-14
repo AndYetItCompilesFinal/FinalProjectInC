@@ -8,19 +8,8 @@ namespace ConsoleApplication1
 {
     class ContainsMinion:MinionBehavior
     {
-
-        public ContainsMinion(BadGuy minion)
+        public ContainsMinion(BadGuy[] minions):base(minions.Length + " Minion(s)",minions)
         {
-            this.Minion = minion;
-            this.Numofminions = 1;
-            Description = "Minion";
-        }
-
-        public ContainsMinion(BadGuy[] minions)
-        {
-            this.Minions = minions;
-            this.Numofminions = minions.Length;
-            Description = Numofminions + " Minions";
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ConsoleApplication1
 {
-    internal class Hades : BossBehavior
+    internal class Hades:BadGuy
     {
         public Hades()
             : base("Hades", 100, 100, .8, 19, 15, "Hello", "Bye", "attack 1", "attack 2", "attack3")
@@ -14,19 +14,19 @@ namespace ConsoleApplication1
         }
         public override int Attack1()
         {
-            Console.WriteLine(this.Name + " tried to slash the enemy with his sword. ");
+            Console.WriteLine(this.GetName() + " tried to slash the enemy with his sword. ");
             return 1;
         }
 
         public override int Attack2()
         {
-            Console.WriteLine(this.Name + "tried to trip the enemy. ");
+            Console.WriteLine(this.GetName() + "tried to trip the enemy. ");
             return 1;
         }
 
         public override int Attack3()
         {
-            Console.WriteLine(this.Name + " tried to jump on and attack the enemy.");
+            Console.WriteLine(this.GetName() + " tried to jump on and attack the enemy.");
             return 1;
         }
 

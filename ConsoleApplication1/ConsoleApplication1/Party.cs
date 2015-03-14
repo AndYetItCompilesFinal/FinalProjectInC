@@ -7,9 +7,9 @@ namespace ConsoleApplication1
 {
     public class Party
     {
-        protected GoodGuy[] party;
-        List<string> characters;
-        public int enemiesDefeated;
+        private GoodGuy[] party;
+        private List<string> characters;
+        private int enemiesDefeated;
 
         public Party(GoodGuy a, GoodGuy b, GoodGuy c,List<string> characters)
         {
@@ -19,6 +19,14 @@ namespace ConsoleApplication1
             party[0] = a;
             party[1] = b;
             party[2] = c;
+        }
+        public int GetEnemiesDefeated()
+        {
+            return this.enemiesDefeated;
+        }
+        public void AddEnemiesDefeated(int value)
+        {
+            this.enemiesDefeated += value;
         }
 
         //return GoodGuy at the specified index

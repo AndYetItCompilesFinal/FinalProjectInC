@@ -7,13 +7,13 @@ namespace ConsoleApplication1
 {
     class Move
     {
-        int currentRow;
-        int currentCol;
-        Level level=null;
-        Room[,] rooms;
-        Party party;
-        Backpack pack;
-        Context context;
+        private int currentRow;
+        private int currentCol;
+        private Level level=null;
+        private Room[,] rooms;
+        private Party party;
+        private Backpack pack;
+        private Context context;
         public Move(Party party, Backpack pack)
         {
             this.party = party;
@@ -25,12 +25,12 @@ namespace ConsoleApplication1
         public void findEntrance(Level level)
         {
             this.level = level;
-            this.rooms = level.level;
+            this.rooms = level.GetLevel();
             for (int row = 0; row < rooms.GetLength(0); row++)
             {
                 for (int col = 0; col < rooms.GetLength(1); col++)
                 {
-                    if (rooms[row, col].type is Entrance)
+                    if (rooms[row, col].GetRoomType() is Entrance)
                     {
                         this.currentRow = row;
                         this.currentCol = col;

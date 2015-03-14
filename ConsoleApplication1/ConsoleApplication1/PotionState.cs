@@ -8,7 +8,7 @@ namespace ConsoleApplication1
 {
     public class PotionState: State
     {
-        public bool DoAction(Context context,Room room,Party party, Backpack pack, Level level, BattleState battleState)
+        public bool DoAction(Context context,Room room,Party party, Backpack pack, Level level, BattleState battleState, BadGuy[] bad)
         {
             context.setState(this);
             int choice;
@@ -66,14 +66,14 @@ namespace ConsoleApplication1
                         }//end of if
                     } while (choice < 1 || choice > 3);
 
-                    party.GetParty(choice - 1).AddHp(room.potion.getHP());
-                    room.potion = new NoPotion();
-                    room.size--;
+                    party.GetParty(choice - 1).AddHp(room.GetPotion().getHP());
+                    room.SetPotion(new NoPotion());
+                    room.SubtractSize();
                     break;
                 case 2:
-                    pack.list.Add(room.potion);
-                    room.potion = new NoPotion();
-                    room.size--;
+                    pack.Add(room.GetPotion());
+                    room.SetPotion(new NoPotion());
+                    room.SubtractSize();
                     break;
                 default:
                     break;
