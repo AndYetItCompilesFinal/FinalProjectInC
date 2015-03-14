@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     class Minion:BadGuy
     {
         public Minion(string name)
-            : base(name, 100, 100, .5, 3, 20, "Hello", "Bye", "attack 1", "attack 2", "attack3")
+            : base(name, 100, 100, .5, 3, 20, "attack 1", "attack 2", "attack3")
         {
             
         }
