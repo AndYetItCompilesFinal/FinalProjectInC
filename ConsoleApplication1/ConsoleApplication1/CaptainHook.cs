@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ConsoleApplication1
 {
-    internal class CaptainHook:BossBehavior
+    public class CaptainHook:BadGuy
     {
         public CaptainHook()
             : base("Captain Hook", 100, 100, .8, 19, 15, "Hello", "Bye", "Use Sword", "Trip Enemy", "Cannon")
