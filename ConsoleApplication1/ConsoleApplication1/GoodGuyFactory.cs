@@ -7,7 +7,7 @@ namespace ConsoleApplication1
 {
     internal class GoodGuyFactory
     {
-        List<string> characters;
+        private List<string> characters;
         public GoodGuyFactory()
         {
             //creates list of available characters
@@ -31,7 +31,7 @@ namespace ConsoleApplication1
         public GoodGuy MainCharacter()
         {
             Console.WriteLine("What is your name?");
-            return new MainCharacter(Console.ReadLine(), new Weapon(10));
+            return new MainCharacter(Console.ReadLine());
         }
 
         //dispays the available characters add asks for the one they would

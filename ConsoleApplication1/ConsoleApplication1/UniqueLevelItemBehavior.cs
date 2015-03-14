@@ -7,8 +7,29 @@ namespace ConsoleApplication1
 {
     public class UniqueLevelItemBehavior
     {
-        public string description;
-        public int quantity;
+        private string description;
+        private int quantity;
+        public UniqueLevelItemBehavior(string description,int quantity)
+        {
+            this.description = description;
+            this.quantity = quantity;
+        }
+        public UniqueLevelItemBehavior()
+        {
+
+        }
+        public string GetDescription()
+        {
+            return description;
+        }
+        public int GetQuantity()
+        {
+            return quantity;
+        }
+        public void AddQuantity()
+        {
+            quantity++;
+        }
 
         public override string ToString()
         {

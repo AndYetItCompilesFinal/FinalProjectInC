@@ -7,21 +7,59 @@ namespace ConsoleApplication1
 {
     public class Room
     {
-        public WeaponBehavior weapon = null;
-        public MinionBehavior minion = null;
-        public BossBehavior boss = null;
-        public UniqueLevelItemBehavior unique = null;
-        public RoomTypeBehavior type = null;
-        public PotionBehavior potion = null;
-        public int row;
-        public int col;
-        public int size;
+        private MinionBehavior minion = null;
+        private UniqueLevelItemBehavior unique = null;
+        private RoomTypeBehavior type = null;
+        private PotionBehavior potion = null;
+        private int row;
+        private int col;
+        private int size;
         public Room(int row, int col, RoomTypeBehavior type)
         {
             this.row = row;
             this.col = col;
             this.type = type;
             this.size = 0;
+        }
+        public UniqueLevelItemBehavior GetUnique()
+        {
+            return unique;
+        }
+        public MinionBehavior GetMinion()
+        {
+            return minion;
+        }
+        public RoomTypeBehavior GetRoomType()
+        {
+            return type;
+        }
+        public PotionBehavior GetPotion()
+        {
+            return potion;
+        }
+        public int GetSize()
+        {
+            return size;
+        }
+        public void SetPotion(PotionBehavior potion)
+        {
+            this.potion = potion;
+        }
+        public void SetMinion(MinionBehavior minion)
+        {
+            this.minion = minion;
+        }
+        public void SetUnique(UniqueLevelItemBehavior unique)
+        {
+            this.unique = unique;
+        }
+        public void SubtractSize()
+        {
+            size--;
+        }
+        public void AddSize()
+        {
+            size++;
         }
 
         public override string ToString()
@@ -38,10 +76,6 @@ namespace ConsoleApplication1
             }
             else
             {
-                if (!(weapon is NoWeapon))
-                {
-                    result += weapon.ToString();
-                }
                 if (!(minion is NoMinions))
                 {
                     result += minion.ToString();

@@ -47,7 +47,6 @@
     <Compile Include="BadGuy.cs" />
     <Compile Include="BattleState.cs" />
     <Compile Include="Belle.cs" />
-    <Compile Include="BossBehavior.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="ChickenLittle.cs" />
     <Compile Include="CombatLevel.cs" />
@@ -77,11 +76,9 @@
     <Compile Include="MinionState.cs" />
     <Compile Include="Move.cs" />
     <Compile Include="MrIncerdible.cs" />
-    <Compile Include="NoBoss.cs" />
     <Compile Include="NoMinions.cs" />
     <Compile Include="NoPotion.cs" />
     <Compile Include="NoUniqueItems.cs" />
-    <Compile Include="NoWeapon.cs" />
     <Compile Include="Party.cs" />
     <Compile Include="PeterPan.cs" />
     <Compile Include="Pluto.cs" />
@@ -102,9 +99,6 @@
     <Compile Include="UniqueItem.cs" />
     <Compile Include="UniqueLevelItemBehavior.cs" />
     <Compile Include="UniqueState.cs" />
-    <Compile Include="Weapon.cs" />
-    <Compile Include="WeaponBehavior.cs" />
-    <Compile Include="WeaponState.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -7,9 +7,8 @@ namespace ConsoleApplication1
 {
     class GenericRoom:RoomTypeBehavior
     {
-        public GenericRoom()
+        public GenericRoom():base("Room")
         {
-            this.description = "Room";
         }
     }
 }

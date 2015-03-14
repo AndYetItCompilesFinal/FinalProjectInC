@@ -7,13 +7,13 @@ namespace ConsoleApplication1
 {
     class LevelWithItems : Level
     {
-        public List<UniqueItem> target;
-        public Backpack pack;
-        public LevelWithItems(GoodGuy disney, WeaponBehavior weapon, BossBehavior boss, String[] items, String[] target, Backpack pack)
+        private List<UniqueItem> target;
+        private Backpack pack;
+        public LevelWithItems(GoodGuy disney,BadGuy boss, String[] items, String[] target, Backpack pack):base(disney)
         {
 
-            this.disney = disney;
-            initialize(weapon, boss);
+            
+            initialize(boss);
             this.target = new List<UniqueItem>();
             targetToList(target);
             this.pack = pack;
@@ -27,8 +27,8 @@ namespace ConsoleApplication1
 
         public override void printLevelObjective()
         {
-            Console.WriteLine(disney + " needs your help!!\n");
-            Console.WriteLine("Find these items for " + disney + ":");
+            Console.WriteLine(GetDisney() + " needs your help!!\n");
+            Console.WriteLine("Find these items for " + GetDisney() + ":");
             foreach (UniqueItem item in this.target)
             {
                 Console.WriteLine(item);
@@ -44,9 +44,9 @@ namespace ConsoleApplication1
                 result = false;
                 foreach (UniqueItem o in this.target)
                 {
-                    if (item.Equals(o.description))
+                    if (item.Equals(o.GetDescription()))
                     {
-                        o.quantity++;
+                        o.AddQuantity();
                         result = true;
                     }
                 }
@@ -64,36 +64,14 @@ namespace ConsoleApplication1
             {
                 row = random();
                 col = random();
-            } while (!(this.level[row, col].type is GenericRoom) || !(this.level[row, col].unique==null));
-            this.level[row, col].unique = new UniqueItem(description);
-            this.level[row, col].size++;
+            } while (!(this.GetLevel()[row, col].GetRoomType() is GenericRoom) || !(GetLevel()[row, col].GetUnique() == null));
+            GetLevel()[row, col].SetUnique(new UniqueItem(description));
+            GetLevel()[row, col].AddSize();
         }
 
         public override bool objective()
         {
-            bool result = false;
-            foreach (UniqueItem item in target)
-            {
-                result = false;
-                foreach (Object o in pack.list)
-                {
-                        if(o is UniqueItem)
-                        {
-                            UniqueItem obj = (UniqueItem)o;
-                            if (obj.description.Equals(item.description)&&obj.quantity>=item.quantity)
-                            {
-                                result = true;
-                            }
-
-                        }
-                       
-                }
-                if (result == false)
-                {
-                    return result;
-                }
-            }
-            return result;
+            return pack.ContainsTarget(this.target);
         }
 
     }

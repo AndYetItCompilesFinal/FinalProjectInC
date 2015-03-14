@@ -7,14 +7,21 @@ namespace ConsoleApplication1
 {
     public abstract class MinionBehavior
     {
-        public string Description;
-        public int Numofminions;
-        public BadGuy Minion;
-        public BadGuy[] Minions;
-
-        public int GetMinions()
+        private string Description;
+        private BadGuy[] Minions;
+        public MinionBehavior(string description, BadGuy[] minions)
         {
-            return this.Numofminions;
+            this.Description = description;
+            this.Minions = minions;
+        }
+        public MinionBehavior()
+        {
+
+        }
+
+        public BadGuy[] GetMinions()
+        {
+            return this.Minions;
         }
 
         public override string ToString()

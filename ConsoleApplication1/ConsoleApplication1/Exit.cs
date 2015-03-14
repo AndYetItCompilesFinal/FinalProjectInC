@@ -7,9 +7,8 @@ namespace ConsoleApplication1
 {
     class Exit:RoomTypeBehavior
     {
-        public Exit()
+        public Exit():base("Exit")
         {
-            description = "Exit";
         }
     }
 }

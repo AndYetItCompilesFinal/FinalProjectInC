@@ -8,7 +8,7 @@ namespace ConsoleApplication1
 {
     class LevelEnum: IEnumerator
     {
-        public Level[] tower;
+        private Level[] tower;
 
     // Enumerators are positioned before the first element 
     // until the first MoveNext() call. 

@@ -8,20 +8,18 @@ namespace ConsoleApplication1
     public abstract class Character
     {
         protected static Random Rand = new Random();
-        protected String Name;
-        protected int MaxHp;
-        protected int Hp;
-        protected double Defense;
-        protected int Speed;
-        protected int Attack;
-        protected string Greeting;
-        protected string GoodBye;
-        protected string AttackName1;
-        protected string AttackName2;
-        protected string AttackName3;
+        private String Name;
+        private int MaxHp;
+        private int Hp;
+        private double Defense;
+        private int Speed;
+        private int Attack;
+        private string AttackName1;
+        private string AttackName2;
+        private string AttackName3;
 
         protected Character(string name, int maxHp, int hp, double defense, int speed, int attack,
-            string greeting, string goodbye, string attackname1, string attackname2, string attackname3)
+             string attackname1, string attackname2, string attackname3)
         {
 
             this.Name = name;
@@ -30,8 +28,6 @@ namespace ConsoleApplication1
             this.Defense = defense;
             this.Speed = speed;
             this.Attack = attack;
-            this.Greeting = greeting;
-            this.GoodBye = goodbye;
             this.AttackName1 = attackname1;
             this.AttackName2 = attackname1;
             this.AttackName3 = attackname3;
@@ -52,26 +48,59 @@ namespace ConsoleApplication1
         {
             return Hp>0;
         }
-
-        public String SayGreeting()
+        public string GetName()
         {
-            return Greeting;
+            return this.Name;
         }
-
-        public String SayGoodBye()
+        public int GetMaxHp()
         {
-            return GoodBye;
+            return this.MaxHp;
         }
-
-        public int GetStrength()
+        public int GetHp()
         {
-            return this.Attack;
+            return this.Hp;
         }
-
+        public double GetDefense()
+        {
+            return this.Defense;
+        }
         public int GetSpeed()
         {
             return this.Speed;
         }
+        public int GetAttack()
+        {
+            return this.Attack;
+        }
+        public string GetAttackName1()
+        {
+            return AttackName1;
+        }
+        public string GetAttackName2()
+        {
+            return AttackName2;
+        }
+        public string GetAttackName3()
+        {
+            return AttackName3;
+        }
+        public void AddHp(int additionalHp)
+        {
+            this.Hp+=additionalHp;
+            if (Hp >= MaxHp)
+            {
+                Hp = MaxHp;
+                Console.WriteLine(Name + " was fully healed!");
+            }
+            else
+            {
+                Console.WriteLine(Name + " has healed " + additionalHp + "hit points. They are at " + Hp + " out of " + MaxHp +
+                                  " hit points.");
+            }
+
+        }
+
+
 
         public override string ToString()
         {
@@ -90,18 +119,9 @@ namespace ConsoleApplication1
         {
             this.Hp = this.Hp - d;
             if (this.Hp > 0) return true;
-
             this.Hp = 0;
-            //if (this.Good == true)
-            //{
-            //    Console.WriteLine(Name + " has fallen!");
-            //    return false;
-            //}
-            //else
-            //{
             Console.WriteLine(Name + " has been defeated!");
             return false;
-            //}
         }
     }
 }

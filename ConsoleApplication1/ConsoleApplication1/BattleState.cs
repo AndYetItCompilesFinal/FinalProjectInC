@@ -6,18 +6,17 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication1
 {
-    public class BattleState
+    public class BattleState:State
     {
-        public List<Character> Characters;
-        public BadGuy[] Bad;
-        public Backpack Pack;
-        protected static Random Rand = new Random();
-
-
-        public bool Battle(Party good, BadGuy[] b, Backpack bp)
+        private List<Character> Characters;
+        private BadGuy[] Bad;
+        private Backpack Pack;
+        private static Random Rand = new Random();
+        public bool DoAction(Context context, Room room, Party party, Backpack pack, Level level, BattleState battleState,BadGuy[] b)
         {
+            context.setState(this);
             Console.WriteLine("You are fighting:");
-            Pack = bp;
+            Pack = pack;
             this.Bad = new BadGuy[b.Length];
             Characters = new List<Character>();
             for (int i = 0; i < b.Length; i++)
@@ -28,14 +27,14 @@ namespace ConsoleApplication1
             }
             for (int i = 0; i < 3; i++)
             {
-                Characters.Add(good.GetParty(i));
+                Characters.Add(party.GetParty(i));
             }
             //add characters to order based on speed stat
 
             //selection sort
             SortBySpeed();
 
-            bool win = Round(good, Bad);
+            bool win = Round(party, Bad);
             if (win)
             {
                 Console.WriteLine("Your party won the fight!");
@@ -48,11 +47,6 @@ namespace ConsoleApplication1
             }
         }//end of constructor
 
-
-        public bool Battle(Party good, BadGuy bad, Backpack bp)
-        {
-            return Battle(good, new BadGuy[] { bad }, bp);
-        }
 
 
         public void SortBySpeed()
@@ -151,7 +145,7 @@ namespace ConsoleApplication1
             if (choice == 1)
             {
                 int baseAttack = c.ChooseAttack();
-                int dmg = Damage(c.GetStrength(), baseAttack);
+                int dmg = Damage(c.GetAttack(), baseAttack);
                 int index = ChooseTarget(c, Bad);
                 if (Bad[index].DodgeAttempt())
                 {
@@ -186,7 +180,7 @@ namespace ConsoleApplication1
             int baseAttack;
             int damageValue;
             baseAttack = c.ChooseAttack();
-            damageValue = Damage(c.GetStrength(), baseAttack);
+            damageValue = Damage(c.GetAttack(), baseAttack);
             // choose hero to attack
             int choice = ((int)(Rand.NextDouble() * 3));
             bool survived = true;

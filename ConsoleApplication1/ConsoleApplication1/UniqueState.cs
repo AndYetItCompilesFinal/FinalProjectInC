@@ -8,13 +8,13 @@ namespace ConsoleApplication1
 {
     public class UniqueState:State
     {
-        public bool DoAction(Context context, Room room, Party party, Backpack pack, Level level, BattleState battleState)
+        public bool DoAction(Context context, Room room, Party party, Backpack pack, Level level, BattleState battleState, BadGuy[] bad)
         {
             context.setState(this);
-            pack.add(room.unique);
-            Console.WriteLine(room.unique.description + " added to backpack\n");
-            room.unique = new NoUniqueItems();
-            room.size--;
+            pack.Add(room.GetUnique());
+            Console.WriteLine(room.GetUnique().GetDescription() + " added to backpack\n");
+            room.SetUnique(new NoUniqueItems());
+            room.SubtractSize();
             return false;
         }
     }

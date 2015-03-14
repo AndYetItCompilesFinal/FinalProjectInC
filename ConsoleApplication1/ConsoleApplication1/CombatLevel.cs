@@ -7,17 +7,15 @@ namespace ConsoleApplication1
 {
     class CombatLevel : Level
     {
-        public int minions;
-        public MinionFactory minionFactory;
-        public Party party;
-        public CombatLevel(GoodGuy disney, WeaponBehavior weapon, BossBehavior boss, int minions,Party party)
+        private int TargetMinions;
+        private MinionFactory MinionFactory;
+        private Party party;
+        public CombatLevel(GoodGuy disney,BadGuy boss, int minions,Party party):base(disney)
         {
-            this.minionFactory = new MinionFactory();
-
-            this.disney = disney;
-            this.minions = minions;
+            this.MinionFactory = new MinionFactory();
+            this.TargetMinions = minions;
             this.party = party;
-            initialize(weapon, boss);
+            initialize(boss);
             for (int i = 0; i < minions; i++)
             {
                 createMinions();
@@ -27,8 +25,8 @@ namespace ConsoleApplication1
 
         public override void printLevelObjective()
         {
-            Console.WriteLine(this.disney+" needs your help!!\n");
-            Console.WriteLine("Defeat "+minions+" Minions");
+            Console.WriteLine(this.GetDisney()+" needs your help!!\n");
+            Console.WriteLine("Defeat "+TargetMinions+" Minions");
         }
 
         public void createMinions()
@@ -38,13 +36,13 @@ namespace ConsoleApplication1
             {
                 row = random();
                 col = random();
-            } while (!(this.level[row, col].type is GenericRoom) || (this.level[row, col].minion != null));
-            this.level[row, col].minion = minionFactory.createParty();
-            this.level[row, col].size++;
+            } while (!(GetLevel()[row, col].GetRoomType() is GenericRoom) || (GetLevel()[row, col].GetMinion() != null));
+            GetLevel()[row, col].SetMinion(MinionFactory.createParty());
+            GetLevel()[row, col].AddSize();
         }
         public override bool objective()
         {
-            if (this.minions==this.party.enemiesDefeated)
+            if (this.TargetMinions==this.party.GetEnemiesDefeated())
             {
                 return true;
             }

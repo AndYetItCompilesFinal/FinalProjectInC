@@ -1,0 +1,10 @@
+diff a/ConsoleApplication1/ConsoleApplication1/Aladdin.cs b/ConsoleApplication1/ConsoleApplication1/Aladdin.cs	(rejected hunks)
+@@ -8,7 +8,7 @@
+     class Aladdin:GoodGuy
+     {
+         public Aladdin()
+-            : base("Aladdin", 50, 50, .3, 12, 14, "Hello", "Bye", "Use Sword", "Trip Enemy", "Physical Attack")
++            : base("Aladdin", 50, 50, .3, 12, 14, "Hello", "Bye", "Use Sword", "Send Genie", "Send Abu")
+         {
+ 
+         }

@@ -7,9 +7,8 @@ namespace ConsoleApplication1
 {
     class Entrance:RoomTypeBehavior
     {
-        public Entrance()
+        public Entrance():base("Room")
         {
-            this.description = "Room";
         }
     }
 }
