@@ -10,7 +10,7 @@ namespace ConsoleApplication1
  
 
         protected BadGuy(string name, int maxHp, int hp, double defense, int speed, int attack,
-            string greeting, string goodbye, string attackname1, string attackname2, string attackname3)
+             string attackname1, string attackname2, string attackname3)
             : base(name, maxHp, hp, defense, speed, attack, attackname1, attackname2, attackname3)
         {
             

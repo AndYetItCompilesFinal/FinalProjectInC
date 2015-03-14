@@ -5,10 +5,10 @@ using System.Text;
 
 namespace ConsoleApplication1
 {
-    internal class Hades:BadGuy
+    public class Hades : BadGuy
     {
         public Hades()
-            : base("Hades", 100, 100, .8, 19, 15, "Hello", "Bye", "Fireball", "Decieve", "Send Pain and Panic")
+            : base("Hades", 100, 100, .8, 19, 15, "Fireball", "Decieve", "Send Pain and Panic")
         {
 
         }
