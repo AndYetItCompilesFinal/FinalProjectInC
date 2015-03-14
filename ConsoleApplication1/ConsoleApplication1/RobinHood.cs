@@ -8,25 +8,25 @@ namespace ConsoleApplication1
     class RobinHood : GoodGuy
     {
         public RobinHood()
-            : base("Robin Hood", 100, 100, .5, 5, 20, "Hello", "Bye", "attack 1", "attack 2", "attack3")
+            : base("Robin Hood", 50, 50, .3, 20, 20, "Hello", "Bye", "Bow and Arrow", "Duel", "Steal Health")
         {
 
         }
         public override int Attack1()
         {
-            Console.WriteLine(this.Name + " tried to slash the enemy with his sword. ");
+            Console.WriteLine(this.Name + " tried to shoot the enemy with his bow and arrow. ");
             return 15;
         }
 
         public override int Attack2()
         {
-            Console.WriteLine(this.Name + "tried to trip the enemy. ");
+            Console.WriteLine(this.Name + "tried to duel with the enemy. ");
             return 5;
         }
 
         public override int Attack3()
         {
-            Console.WriteLine(this.Name + " tried to jump on and attack the enemy.");
+            Console.WriteLine(this.Name + " tried to steal health from the enemy.");
             return 5;
         }
     }

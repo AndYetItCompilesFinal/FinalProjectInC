@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     class Aladdin:GoodGuy
     {
         public Aladdin()
-            : base("Aladdin", 100, 100, .5, 5, 20, "Hello", "Bye", "attack 1", "attack 2", "attack3")
+            : base("Aladdin", 50, 50, .3, 12, 14, "Hello", "Bye", "Use Sword", "Send Genie", "Send Abu")
         {
 
         }
@@ -20,13 +20,13 @@ namespace ConsoleApplication1
 
         public override int Attack2()
         {
-            Console.WriteLine(this.Name + "tried to trip the enemy. ");
+            Console.WriteLine(this.Name + "sent Genie to try to stun the enemy. ");
             return 5;
         }
 
         public override int Attack3()
         {
-            Console.WriteLine(this.Name + " tried to jump on and attack the enemy.");
+            Console.WriteLine(this.Name + " sent Abu to try and claw the enemy.");
             return 5;
         }
     }

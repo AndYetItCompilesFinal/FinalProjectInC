@@ -1,16 +1,16 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace ConsoleApplication1
 {
-    class PeterPan : GoodGuy
+    internal class CaptainHook:BossBehavior
     {
-        public PeterPan()
-            : base("Peter Pan", 50, 50, .2, 20, 20, "Hello", "Bye", "Sword", "Shadow Attack", "Duel")
+        public CaptainHook()
+            : base("Captain Hook", 100, 100, .8, 19, 15, "Hello", "Bye", "Use Sword", "Trip Enemy", "Cannon")
         {
-  
+
         }
         public override int Attack1()
         {
@@ -20,15 +20,14 @@ namespace ConsoleApplication1
 
         public override int Attack2()
         {
-            Console.WriteLine(this.Name + "tried to attack the enemy with his shadow. ");
+            Console.WriteLine(this.Name + "tried to trip the enemy. ");
             return 5;
         }
 
         public override int Attack3()
         {
-            Console.WriteLine(this.Name + " tried to duel with the enemy.");
+            Console.WriteLine(this.Name + " tried to shoot a cannon at his enemy.");
             return 5;
         }
-
     }
 }

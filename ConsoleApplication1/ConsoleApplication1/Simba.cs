@@ -8,25 +8,25 @@ namespace ConsoleApplication1
     class Simba:GoodGuy
     {
              public Simba()
-            : base("Simba", 100, 100, .5, 5, 20, "Hello", "Bye", "attack 1", "attack 2", "attack3")
+            : base("Simba", 100, 100, .6, 20, 18, "Hello", "Bye", "Backflip", "Slash", "Roar")
         {
         }
 
         public override int Attack1()
         {
-            Console.WriteLine(this.Name + " tried to slash the enemy with his sword. ");
+            Console.WriteLine(this.Name + " tried to backflip his enemy into the fire. ");
             return 15;
         }
 
         public override int Attack2()
         {
-            Console.WriteLine(this.Name + "tried to trip the enemy. ");
+            Console.WriteLine(this.Name + "tried to slash his enemy. ");
             return 5;
         }
 
         public override int Attack3()
         {
-            Console.WriteLine(this.Name + " tried to jump on and attack the enemy.");
+            Console.WriteLine(this.Name + " tried to roar his enemy to death.");
             return 5;
         }
     }
