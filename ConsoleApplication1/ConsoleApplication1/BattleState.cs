@@ -77,10 +77,12 @@ namespace ConsoleApplication1
         public bool Round()
         {
             //if at least one memver from each group is alive
-            while (Party.PartyAlive() && !EnemyAlive(Bad))
+
+            while (Party.PartyAlive() && !EnemyDead(Bad))
             {
                 foreach (Character character in Characters)
                 {
+                   
                     if (character.IsAlive())
                     {
                         Console.WriteLine(character.ToString() + "'s turn!");
@@ -164,7 +166,7 @@ namespace ConsoleApplication1
                     if (!Bad[index].ApplyDamage(dmg))
                     {
                         Remove(index);
-                        if (EnemyAlive(Bad))
+                        if (EnemyDead(Bad))
                         {
                             return true;
                         }
@@ -253,7 +255,7 @@ namespace ConsoleApplication1
         }
 
         //returns whether the good guys won or not
-        public bool EnemyAlive(BadGuy[] bad)
+        public bool EnemyDead(BadGuy[] bad)
         {
             for (int i = 0; i < bad.Length; i++)
             {

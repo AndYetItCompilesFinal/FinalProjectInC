@@ -19,7 +19,7 @@ namespace ConsoleApplication1
             end = false;
         }
 
-        public void Run(Level level)
+        public bool Run(Level level)
       {
           level.PrintLevelObjective();
           Console.WriteLine(level);
@@ -72,10 +72,10 @@ namespace ConsoleApplication1
                   level.PrintLevelObjective();
                   break;
                default:
-						end=true;
-                  break;
+					return true;
             }
          }while (end==false);
+         return false;
       }//end of method
     }
 }

@@ -10,7 +10,6 @@ namespace ConsoleApplication1
     {
         public bool DoAction(Context context, Room room, Party party, Backpack pack, Level level, BattleState battleState,BadGuy[] bad)
         {
-            bool win;
             context.SetState(this);
             if (!level.Objective())
             {
@@ -33,6 +32,8 @@ namespace ConsoleApplication1
                 }
                 else
                 {
+                    bad[0].FullHeal();
+                    party.UpdateStats();
                     return false;
                 }
             }

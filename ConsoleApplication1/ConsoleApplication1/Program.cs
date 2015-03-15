@@ -25,10 +25,13 @@ namespace ConsoleApplication1
             Tower tower=new Tower(pack,party);
             Move move = new Move(party, pack);
             GameOptions mainMenu = new GameOptions(move, pack, party);
-
+            bool quit=false;
             foreach(Level level in tower)
             {
-                mainMenu.Run(level);
+                if(!quit)
+                {
+                    quit = mainMenu.Run(level);
+                }
             }
 
             Console.WriteLine("You have gone through the entire castle");

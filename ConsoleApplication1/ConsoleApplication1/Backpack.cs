@@ -20,9 +20,12 @@ namespace ConsoleApplication1
             {
                 return new NoPotion();
             }
-            int i=0;
+            int i;
             int choice;
-            int index = 0;
+            int index;
+            do{
+                i = 0;
+                index = 0;
             Console.WriteLine("What item would you like to use:");
             foreach(Object o in list)
             {
@@ -41,6 +44,13 @@ namespace ConsoleApplication1
             {
                 choice = -1;
             }
+            if (choice < 1 || choice > i)
+            {
+                Console.WriteLine("I am sorry that is an invalid menu choice.");
+                Console.WriteLine("Please try again");
+                Console.WriteLine();
+            }
+            } while (choice < 1 || choice > i);
             return (PotionBehavior)list[choice-1];
         }
 
