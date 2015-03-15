@@ -18,6 +18,7 @@ namespace ConsoleApplication1
         private ExitState ExitState = new ExitState();
         private UniqueState UniqueState = new UniqueState();
         private BattleState BattleState = new BattleState();
+        private bool BossAttemped = false;
 
         public abstract bool Objective();
         public abstract void PrintLevelObjective();
@@ -206,5 +207,15 @@ namespace ConsoleApplication1
             return random.Next(5);
         }//end of method
 
+
+        internal bool GetBossAttempted()
+        {
+            return this.BossAttemped;
+        }
+
+        internal void BossAttemptTrue()
+        {
+            this.BossAttemped = true;
+        }
     }
 }

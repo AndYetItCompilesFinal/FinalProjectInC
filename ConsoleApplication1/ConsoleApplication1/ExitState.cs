@@ -10,6 +10,7 @@ namespace ConsoleApplication1
     {
         public bool DoAction(Context context, Room room, Party party, Backpack pack, Level level, BattleState battleState,BadGuy[] bad)
         {
+            bool win;
             context.SetState(this);
             if (!level.Objective())
             {
@@ -19,10 +20,21 @@ namespace ConsoleApplication1
             else
             {
                 Console.WriteLine("You completed the level objective!");
-                party.UnlockCharacter(level.GetDisney(), party);//unlock character
-                pack.DeleteUniqueItems();
+                if (!level.GetBossAttempted())
+                {
+                    party.UnlockCharacter(level.GetDisney(), party);//unlock character
+                }
+                level.BossAttemptTrue();
                 Console.WriteLine("Boss Battle!!!!!!");
-                return battleState.DoAction(context,room,party,pack,level,battleState,bad);
+                if(battleState.DoAction(context,room,party,pack,level,battleState,bad))
+                {
+                    pack.DeleteUniqueItems();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             
         }

@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     public class Syndrome : BadGuy
     {
         public Syndrome()
-            : base("Syndrome", 100, 100, .8, 19, 15, "Stun with Monologue", "Bomb", "Attack with Robot")
+            : base("Syndrome", 100, 100, .6, 19, 15, "Stun with Monologue", "Bomb", "Attack with Robot")
         {
 
         }

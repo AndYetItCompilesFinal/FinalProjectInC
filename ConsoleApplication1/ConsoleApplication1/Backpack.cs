@@ -77,6 +77,7 @@ namespace ConsoleApplication1
                         if (listobj.GetDescription().Equals(obj.GetDescription()))
                         {
                             listobj.AddQuantity();
+                            Console.WriteLine(o.ToString() + " added to backpack");
                             list[i] = listobj;
                             result = true;
                         }
@@ -87,6 +88,7 @@ namespace ConsoleApplication1
             if (!result)
             {
                 list.Add(o);
+                Console.WriteLine(o.ToString() +" added to backpack");
             }
         }
 

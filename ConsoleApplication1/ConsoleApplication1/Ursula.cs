@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     public class Ursula : BadGuy
     {
         public Ursula()
-            : base("Ursula", 100, 100, .8, 19, 15,"Tentacle Grab", "Poison Ink", "Curse")
+            : base("Ursula", 100, 100, .6, 19, 15,"Tentacle Grab", "Poison Ink", "Curse")
         {
 
         }

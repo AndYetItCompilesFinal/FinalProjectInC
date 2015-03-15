@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     public class Hades : BadGuy
     {
         public Hades()
-            : base("Hades", 100, 100, .8, 19, 15, "Fireball", "Decieve", "Send Pain and Panic")
+            : base("Hades", 100, 100, .6, 19, 15, "Fireball", "Decieve", "Send Pain and Panic")
         {
 
         }

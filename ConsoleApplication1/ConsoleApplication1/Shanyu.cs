@@ -9,7 +9,7 @@ namespace ConsoleApplication1
     public class Shanyu : BadGuy
     {
         public Shanyu()
-            : base("Shanyu", 100, 100, .8, 19, 15, "Ambush", "Use Falcon", "Sword")
+            : base("Shanyu", 75, 75, .6, 19, 15, "Ambush", "Use Falcon", "Sword")
         {
 
         }

@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     public class Gaston : BadGuy
     {
         public Gaston()
-            : base("Gaston", 100, 100, .8, 19, 15, "Use Sword", "Send Angry Mob", "Gun")
+            : base("Gaston", 75, 75, .6, 19, 15, "Use Sword", "Send Angry Mob", "Gun")
         {
 
         }

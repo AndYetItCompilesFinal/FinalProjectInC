@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     public class Scar : BadGuy
     {
         public Scar()
-            : base("Scar", 100, 100, .8, 19, 15, "Slash", "Kill Father", "Send hyenas")
+            : base("Scar", 75, 75, .6, 19, 15, "Slash", "Kill Father", "Send hyenas")
         {
 
         }

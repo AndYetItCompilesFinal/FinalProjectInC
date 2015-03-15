@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     public class Randal : BadGuy
     {
         public Randal()
-            : base("Randal", 100, 100, .8, 19, 15, "Surprise Attack", "Scare", "Tail Whip")
+            : base("Randal", 100, 100, .6, 19, 15, "Surprise Attack", "Scare", "Tail Whip")
         {
 
         }

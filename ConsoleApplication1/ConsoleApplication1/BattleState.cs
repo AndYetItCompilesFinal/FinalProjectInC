@@ -181,6 +181,7 @@ namespace ConsoleApplication1
                     {
                         int x = ChooseTarget();
                         Bad[x].ApplyDamage(potion.getHP());
+                        Pack.Remove(potion);
                     }
                     else
                     {
@@ -243,14 +244,9 @@ namespace ConsoleApplication1
                 }
                 Console.WriteLine();
 
-                if (target < 1 || target > 3)
+                if (target < 1 || target > Bad.Length)
                 {
                     Console.WriteLine("Invalid number.");
-                }
-                if (!Bad[target - 1].IsAlive())
-                {
-                    Console.WriteLine("That enemy is no longer alive. Choose a different target.");
-                    target = -1;
                 }
             }
             return target - 1;

@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     public class CaptainHook : BadGuy
     {
         public CaptainHook()
-            : base("Captain Hook", 100, 100, .8, 19, 15, "Use Hook", "Force off the plank", "Cannon")
+            : base("Captain Hook", 75, 75, .6, 19, 15, "Use Hook", "Force off the plank", "Cannon")
         {
 
         }
