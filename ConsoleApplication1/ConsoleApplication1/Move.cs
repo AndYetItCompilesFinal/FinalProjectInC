@@ -7,33 +7,33 @@ namespace ConsoleApplication1
 {
     class Move
     {
-        private int currentRow;
-        private int currentCol;
-        private Level level=null;
-        private Room[,] rooms;
-        private Party party;
-        private Backpack pack;
-        private Context context;
+        private int CurrentRow;
+        private int CurrentCol;
+        private Level Level=null;
+        private Room[,] Rooms;
+        private Party Party;
+        private Backpack Pack;
+        private Context Context;
         public Move(Party party, Backpack pack)
         {
-            this.party = party;
-            this.pack = pack;
-            context = new Context();
+            this.Party = party;
+            this.Pack = pack;
+            Context = new Context();
         }
 
 
         public void findEntrance(Level level)
         {
-            this.level = level;
-            this.rooms = level.GetLevel();
-            for (int row = 0; row < rooms.GetLength(0); row++)
+            this.Level = level;
+            this.Rooms = level.GetLevel();
+            for (int row = 0; row < Rooms.GetLength(0); row++)
             {
-                for (int col = 0; col < rooms.GetLength(1); col++)
+                for (int col = 0; col < Rooms.GetLength(1); col++)
                 {
-                    if (rooms[row, col].GetRoomType() is Entrance)
+                    if (Rooms[row, col].GetRoomType() is Entrance)
                     {
-                        this.currentRow = row;
-                        this.currentCol = col;
+                        this.CurrentRow = row;
+                        this.CurrentCol = col;
                     }//end of if
                 }//end of inner for loop
             }//end of outer for loop
@@ -76,7 +76,7 @@ namespace ConsoleApplication1
             switch (choice)
             {
                 case 1:
-                    if (currentRow > 0)
+                    if (CurrentRow > 0)
                     {
                         return moveNorth();
                     }
@@ -84,7 +84,7 @@ namespace ConsoleApplication1
                         Console.WriteLine("Cannot move north");
                     break;
                 case 2:
-                    if (currentRow < 4)
+                    if (CurrentRow < 4)
                     {
                         return moveSouth();
                     }
@@ -92,7 +92,7 @@ namespace ConsoleApplication1
                         Console.WriteLine("Cannot move south");
                     break;
                 case 3:
-                    if (currentCol < 4)
+                    if (CurrentCol < 4)
                     {
                         return moveEast();
                     }
@@ -100,7 +100,7 @@ namespace ConsoleApplication1
                         Console.WriteLine("Cannot move east");
                     break;
                 case 4:
-                    if (currentCol > 0)
+                    if (CurrentCol > 0)
                     {
                         return moveWest();
                     }
@@ -117,26 +117,26 @@ namespace ConsoleApplication1
 
         public bool moveEast()
         {
-            this.currentCol++;
-            return level.executeRoom(this.context,this.currentRow, this.currentCol,this.party,this.pack);
+            this.CurrentCol++;
+            return Level.ExecuteRoom(this.Context,this.CurrentRow, this.CurrentCol,this.Party,this.Pack);
         }
 
         public bool moveWest()
         {
-            this.currentCol--;
-            return level.executeRoom(this.context, this.currentRow, this.currentCol, this.party, this.pack);
+            this.CurrentCol--;
+            return Level.ExecuteRoom(this.Context, this.CurrentRow, this.CurrentCol, this.Party, this.Pack);
         }
 
         public bool moveSouth()
         {
-            this.currentRow++;
-            return level.executeRoom(this.context, this.currentRow, this.currentCol, this.party, this.pack);
+            this.CurrentRow++;
+            return Level.ExecuteRoom(this.Context, this.CurrentRow, this.CurrentCol, this.Party, this.Pack);
         }
 
         public bool moveNorth()
         {
-            this.currentRow--;
-            return level.executeRoom(this.context, this.currentRow, this.currentCol, this.party, this.pack);
+            this.CurrentRow--;
+            return Level.ExecuteRoom(this.Context, this.CurrentRow, this.CurrentCol, this.Party, this.Pack);
         }
 
     }

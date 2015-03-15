@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ConsoleApplication1
+
 {
     class Program
     {
@@ -24,14 +25,19 @@ namespace ConsoleApplication1
             Tower tower=new Tower(pack,party);
             Move move = new Move(party, pack);
             GameOptions mainMenu = new GameOptions(move, pack, party);
+
             foreach(Level level in tower)
             {
+                party.UpdateStats();
                 Console.WriteLine(level);
                 move.findEntrance(level);
-                mainMenu.run();
+                mainMenu.Run();
             }
 
-           
+            Console.WriteLine("You have gone through the entire castle");
+            Console.WriteLine("And helped all of the Characters");
+            Console.WriteLine();
+            Console.WriteLine("You Win!!!!!");
             
             Console.ReadLine();
         }

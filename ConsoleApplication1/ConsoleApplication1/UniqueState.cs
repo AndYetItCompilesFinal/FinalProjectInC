@@ -10,7 +10,7 @@ namespace ConsoleApplication1
     {
         public bool DoAction(Context context, Room room, Party party, Backpack pack, Level level, BattleState battleState, BadGuy[] bad)
         {
-            context.setState(this);
+            context.SetState(this);
             pack.Add(room.GetUnique());
             Console.WriteLine(room.GetUnique().GetDescription() + " added to backpack\n");
             room.SetUnique(new NoUniqueItems());

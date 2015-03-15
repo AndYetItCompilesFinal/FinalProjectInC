@@ -7,86 +7,86 @@ namespace ConsoleApplication1
 {
     public class Room
     {
-        private MinionBehavior minion = null;
-        private UniqueLevelItemBehavior unique = null;
-        private RoomTypeBehavior type = null;
-        private PotionBehavior potion = null;
-        private int row;
-        private int col;
-        private int size;
+        private MinionBehavior Minion = null;
+        private UniqueLevelItemBehavior Unique = null;
+        private RoomTypeBehavior Type = null;
+        private PotionBehavior Potion = null;
+        private int Row;
+        private int Col;
+        private int Size;
         public Room(int row, int col, RoomTypeBehavior type)
         {
-            this.row = row;
-            this.col = col;
-            this.type = type;
-            this.size = 0;
+            this.Row = row;
+            this.Col = col;
+            this.Type = type;
+            this.Size = 0;
         }
         public UniqueLevelItemBehavior GetUnique()
         {
-            return unique;
+            return Unique;
         }
         public MinionBehavior GetMinion()
         {
-            return minion;
+            return Minion;
         }
         public RoomTypeBehavior GetRoomType()
         {
-            return type;
+            return Type;
         }
         public PotionBehavior GetPotion()
         {
-            return potion;
+            return Potion;
         }
         public int GetSize()
         {
-            return size;
+            return Size;
         }
         public void SetPotion(PotionBehavior potion)
         {
-            this.potion = potion;
+            this.Potion = potion;
         }
         public void SetMinion(MinionBehavior minion)
         {
-            this.minion = minion;
+            this.Minion = minion;
         }
         public void SetUnique(UniqueLevelItemBehavior unique)
         {
-            this.unique = unique;
+            this.Unique = unique;
         }
         public void SubtractSize()
         {
-            size--;
+            Size--;
         }
         public void AddSize()
         {
-            size++;
+            Size++;
         }
 
         public override string ToString()
         {
             String result = "";
-            if (type is Exit)
+            if (Type is Exit)
             {
                 return "";
             }
-            result += type.ToString();
-            if (this.size == 0)
+            result += Type.ToString();
+            if (this.Size == 0)
             {
                 result += " is empty";
             }
             else
             {
-                if (!(minion is NoMinions))
+                if (!(Minion is NoMinions))
                 {
-                    result += minion.ToString();
+                    result += Minion.ToString();
                 }
-                if (!(potion is NoPotion))
+                if (!(Potion is NoPotion))
                 {
-                    result += potion.getDescription();
+                    result += Potion.getDescription();
                 }
-                if (!(unique is NoUniqueItems))
+                if (!(Unique is NoUniqueItems))
                 {
-                    result += unique.getDescription();
+                    result += Unique.getDescription();
                 }
             }
             return result;

@@ -11,30 +11,32 @@ namespace ConsoleApplication1
         private List<Character> Characters;
         private BadGuy[] Bad;
         private Backpack Pack;
+        private Party Party;
         private static Random Rand = new Random();
-        public bool DoAction(Context context, Room room, Party party, Backpack pack, Level level, BattleState battleState,BadGuy[] b)
+        public bool DoAction(Context context, Room room, Party party, Backpack pack, Level level, BattleState battleState,BadGuy[] bad)
         {
-            context.setState(this);
+            context.SetState(this);
             Console.WriteLine("You are fighting:");
-            Pack = pack;
-            this.Bad = new BadGuy[b.Length];
-            Characters = new List<Character>();
-            for (int i = 0; i < b.Length; i++)
+            this.Pack = pack;
+            this.Party = party;
+            this.Bad = bad;
+            this.Characters = new List<Character>();
+            //adding all characters to list
+            for (int i = 0; i < bad.Length; i++)
             {
-                Console.WriteLine(b[i]);
-                Bad[i] = b[i];
+                //printing enemies
+                Console.WriteLine(Bad[i]);
                 Characters.Add(Bad[i]);
             }
             for (int i = 0; i < 3; i++)
             {
                 Characters.Add(party.GetParty(i));
             }
-            //add characters to order based on speed stat
 
             //selection sort
             SortBySpeed();
 
-            bool win = Round(party, Bad);
+            bool win = Round();
             if (win)
             {
                 Console.WriteLine("Your party won the fight!");
@@ -72,20 +74,21 @@ namespace ConsoleApplication1
         }
 
         //Continues to go through turn order and runs turn operations
-        public bool Round(Party good, BadGuy[] bad)
+        public bool Round()
         {
-            while (good.PartyAlive() && !Victory(bad))
+            //if at least one memver from each group is alive
+            while (Party.PartyAlive() && !EnemyAlive(Bad))
             {
-                foreach (Character c in Characters)
+                foreach (Character character in Characters)
                 {
-                    if (c.IsAlive())
+                    if (character.IsAlive())
                     {
-                        Console.WriteLine(c.ToString() + "'s turn!");
+                        Console.WriteLine(character.ToString() + "'s turn!");
                         Console.WriteLine();
                         //if good guy
-                        if (c is GoodGuy)
+                        if (character is GoodGuy)
                         {
-                            if (DisplayMenu((GoodGuy)c))
+                            if (DisplayMenu((GoodGuy)character))
                             {
                                 return true;
                             }
@@ -93,10 +96,11 @@ namespace ConsoleApplication1
                         //if badguy
                         else
                         {
-                            if (!VillanTurn((BadGuy)c, good))
+                            if (!VillanTurn((BadGuy)character))
                             {
-                                if (!good.PartyAlive())
+                                if (!Party.PartyAlive())
                                 {
+                                    //party loses
                                     return false;
                                 }
                             }
@@ -120,14 +124,14 @@ namespace ConsoleApplication1
         }
 
         //Lets user pick to attack or use an item
-        public bool DisplayMenu(GoodGuy c)
+        public bool DisplayMenu(GoodGuy goodguy)
         {
             int choice;
             do
             {
                 Console.WriteLine("Do you want to: ");
                 Console.WriteLine("1. Attack");
-                Console.WriteLine("2. Item");
+                Console.WriteLine("2. Use Item");
                 Console.WriteLine("Enter your choice: ");
                 bool tryParse = int.TryParse(Console.ReadLine(), out choice);
                 if (!tryParse)
@@ -142,23 +146,24 @@ namespace ConsoleApplication1
                 }
 
             } while (choice < 1 || choice > 2);
-            if (choice == 1)
+            if (choice == 1)//attack
             {
-                int baseAttack = c.ChooseAttack();
-                int dmg = Damage(c.GetAttack(), baseAttack);
-                int index = ChooseTarget(c, Bad);
+                int baseAttack = goodguy.ChooseAttack();
+                int dmg = Damage(goodguy.GetAttack(), baseAttack);
+                int index = ChooseTarget();
+                //possibility of dodge
                 if (Bad[index].DodgeAttempt())
                 {
                     Console.WriteLine("The attack missed.");
                 }
+                //attack hits
                 else
                 {
                     Console.WriteLine("The attack hit for " + dmg + ".");
-                    bool alive = Bad[index].ApplyDamage(dmg);
-                    if (!alive)
+                    if (!Bad[index].ApplyDamage(dmg))
                     {
                         Remove(index);
-                        if (Victory(Bad))
+                        if (EnemyAlive(Bad))
                         {
                             return true;
                         }
@@ -166,49 +171,60 @@ namespace ConsoleApplication1
                 }
                 Console.WriteLine();
             }
-            else
+            else//use item
             {
-                Console.WriteLine("The items that are in your backpack: ");
-                Console.WriteLine(Pack.ToString());
+                PotionBehavior potion=Pack.UseItem();
+                if(potion is Poison10HP)
+                {
+                    int x=ChooseTarget();
+                    Bad[x].ApplyDamage(potion.getHP());
+                }
+                else
+                {
+                    Party.UsePotion(potion);
+                    Pack.Remove(potion);
+                }
             }
             return false;
         }
 
         //Automatically runs through the villan's turn, returning whether the hero survived the attack
-        public bool VillanTurn(BadGuy c, Party good)
+        public bool VillanTurn(BadGuy badguy)
         {
             int baseAttack;
             int damageValue;
-            baseAttack = c.ChooseAttack();
-            damageValue = Damage(c.GetAttack(), baseAttack);
+            baseAttack = badguy.ChooseAttack();
+            damageValue = Damage(badguy.GetAttack(), baseAttack);
             // choose hero to attack
-            int choice = ((int)(Rand.NextDouble() * 3));
+            int choice;
             bool survived = true;
-                if (good.GetParty(choice).IsAlive())
-                {
-                    if (good.GetParty(choice).DodgeAttempt())
+            do
+            {
+                choice = ((int)(Rand.NextDouble() * 3));
+                //choose a party member that is alive
+            } while (!Party.GetParty(choice).IsAlive());
+                    if (Party.GetParty(choice).DodgeAttempt())
                     {
                         Console.WriteLine("The attack missed.");
                     }
                     else
                     {
                         Console.WriteLine("The attack hit for " + damageValue + ".");
-                        survived = good.GetParty(choice).ApplyDamage(damageValue);
+                        survived = Party.GetParty(choice).ApplyDamage(damageValue);
                     }
-                }
             return survived;
         }
 
         //Lets the user choose the target to attack
-        public int ChooseTarget(Character c, BadGuy[] bad)
+        public int ChooseTarget()
         {
             int target = 0;
-            while (target < 1 || target > bad.Length)
+            while (target < 1 || target > Bad.Length)
             {
                 Console.WriteLine("Who do you want to attack?");
-                for (int i = 0; i < bad.Length; i++)
+                for (int i = 0; i < Bad.Length; i++)
                 {
-                    Console.WriteLine(i + 1 + ". " + bad[i].ToString()); ;
+                    Console.WriteLine(i + 1 + ". " + Bad[i].ToString()); ;
                 }
                 Console.WriteLine("Enter the number here: ");
 
@@ -223,7 +239,7 @@ namespace ConsoleApplication1
                 {
                     Console.WriteLine("Invalid number.");
                 }
-                if (!bad[target - 1].IsAlive())
+                if (!Bad[target - 1].IsAlive())
                 {
                     Console.WriteLine("That enemy is no longer alive. Choose a different target.");
                     target = -1;
@@ -233,7 +249,7 @@ namespace ConsoleApplication1
         }
 
         //returns whether the good guys won or not
-        public bool Victory(BadGuy[] bad)
+        public bool EnemyAlive(BadGuy[] bad)
         {
             for (int i = 0; i < bad.Length; i++)
             {

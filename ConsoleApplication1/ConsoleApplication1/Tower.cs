@@ -8,7 +8,7 @@ namespace ConsoleApplication1
 {
     class Tower:IEnumerable
     {
-        private Level[] tower;
+        private Level[] Tower;
         public Tower(Backpack pack,Party party)
         {
             
@@ -23,12 +23,12 @@ namespace ConsoleApplication1
             Level level9=new LevelWithItems(new Mike(),new Hades(),new String[]{"Doll","Door","Door","Door","Scream","Scream"},new String[]{"Doll","Door","Sream","Scream"},pack);
             Level level10=new LevelWithItems(new Ariel(),new Hades(),new String[]{"Fork","Thimble","Statue","Painting","Chess Piece","Book"},new String[]{"Fork","Thimble","Painting","Chess Piece"},pack);
 
-            tower = new Level[] { level1, level2 ,level3,level4,level5,level6,level7,level8,level9,level10};
+            Tower = new Level[] { level1, level2 ,level3,level4,level5,level6,level7,level8,level9,level10};
         }
 
         public Level GetLevel(int cur)
         {
-            return tower[cur];
+            return Tower[cur];
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -38,7 +38,7 @@ namespace ConsoleApplication1
 
         public LevelEnum GetEnumerator()
         {
-            return new LevelEnum(tower);
+            return new LevelEnum(Tower);
         }
 
     }

@@ -7,23 +7,23 @@ namespace ConsoleApplication1
 {
     public class PotionBehavior
     {
-        public string description;
-        public int HP;
+        public string Description;
+        public int Hp;
 
         public override string ToString()
         {
-            return description;
+            return Description;
         }
 
 
         public string getDescription()
         {
-            return ", " + description;
+            return ", " + Description;
         }
 
         public int getHP()
         {
-            return HP;
+            return Hp;
         }
     }
 }

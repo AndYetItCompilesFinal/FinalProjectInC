@@ -7,12 +7,12 @@ namespace ConsoleApplication1
 {
     public class UniqueLevelItemBehavior
     {
-        private string description;
-        private int quantity;
+        private string Description;
+        private int Quantity;
         public UniqueLevelItemBehavior(string description,int quantity)
         {
-            this.description = description;
-            this.quantity = quantity;
+            this.Description = description;
+            this.Quantity = quantity;
         }
         public UniqueLevelItemBehavior()
         {
@@ -20,30 +20,30 @@ namespace ConsoleApplication1
         }
         public string GetDescription()
         {
-            return description;
+            return Description;
         }
         public int GetQuantity()
         {
-            return quantity;
+            return Quantity;
         }
         public void AddQuantity()
         {
-            quantity++;
+            Quantity++;
         }
 
         public override string ToString()
         {
-            if (quantity == 1)
+            if (Quantity == 1)
             {
-                return description;
+                return Description;
             }
             else
-                return description + " (" + quantity + ")";   
+                return Description + " (" + Quantity + ")";   
         }
 
         public string getDescription()
         {
-            return ", " + description;
+            return ", " + Description;
         }
 
     }

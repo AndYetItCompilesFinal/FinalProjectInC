@@ -7,138 +7,137 @@ namespace ConsoleApplication1
 {
     public abstract class Level
     {
-        private Room[,] level = new Room[5, 5];
-        private int towerPosition;
-        private GoodGuy disney;
-        private BadGuy boss;
-        private MinionBehavior noMinion = new NoMinions();
-        private UniqueLevelItemBehavior noUnique = new NoUniqueItems();
-        private PotionBehavior noPotion = new NoPotion();
-        private PotionState potionState = new PotionState();
-        private MinionState minionState = new MinionState();
-        private ExitState exitState = new ExitState();
-        private UniqueState uniqueState = new UniqueState();
-        private BattleState battleState = new BattleState();
+        private Room[,] Level = new Room[5, 5];
+        private GoodGuy Disney;
+        private BadGuy Boss;
+        private MinionBehavior NoMinion = new NoMinions();
+        private UniqueLevelItemBehavior NoUnique = new NoUniqueItems();
+        private PotionBehavior NoPotion = new NoPotion();
+        private PotionState PotionState = new PotionState();
+        private MinionState MinionState = new MinionState();
+        private ExitState ExitState = new ExitState();
+        private UniqueState UniqueState = new UniqueState();
+        private BattleState BattleState = new BattleState();
 
-        public abstract bool objective();
-        public abstract void printLevelObjective();
+        public abstract bool Objective();
+        public abstract void PrintLevelObjective();
         public Level(GoodGuy disney)
         {
-            this.disney = disney;
+            this.Disney = disney;
         }
 
-        public void initialize(BadGuy boss)
+        public void Initialize(BadGuy boss)
         {
-            this.boss = boss;
-            entrance();
-            exit();
-            generateRooms();
-            potion(new HealthPotionHP10());//10hp
-            potion(new HealthPotionHP15());//15hp
-            potion(new MaxHealthPotion());//maxhp
-            potion(new Poison10HP());//poison
+            this.Boss = boss;
+            Entrance();
+            Exit();
+            GenerateRooms();
+            Potion(new HealthPotionHP10());//10hp
+            Potion(new HealthPotionHP15());//15hp
+            Potion(new MaxHealthPotion());//maxhp
+            Potion(new Poison10HP());//poison
         }//end of class
-        public void entrance()
+        public void Entrance()
         {
-            int row = random();
-            int col = random();
-            this.level[row, col] = new Room(row, col, new Entrance());
+            int row = Random();
+            int col = Random();
+            this.Level[row, col] = new Room(row, col, new Entrance());
         }
-        public void exit()
+        public void Exit()
         {
             int row, col;
             do
             {
-                row = random();
-                col = random();
-            } while (this.level[row, col] != null);
-            this.level[row, col] = new Room(row, col, new Exit());
+                row = Random();
+                col = Random();
+            } while (this.Level[row, col] != null);
+            this.Level[row, col] = new Room(row, col, new Exit());
         }
-        public void generateRooms()
+        public void GenerateRooms()
         {
-            for (int row = 0; row < level.GetLength(0); row++)
+            for (int row = 0; row < Level.GetLength(0); row++)
             {
-                for (int col = 0; col < level.GetLength(1); col++)
+                for (int col = 0; col < Level.GetLength(1); col++)
                 {
-                    if (this.level[row, col] == null)
+                    if (this.Level[row, col] == null)
                     {
-                        this.level[row, col] = new Room(row, col, new GenericRoom());
+                        this.Level[row, col] = new Room(row, col, new GenericRoom());
                     }
                 }
             }
         }
-        public void potion(PotionBehavior potion)
+        public void Potion(PotionBehavior potion)
         {
             int row, col;
             do
             {
-                row = random();
-                col = random();
-            } while (!(this.level[row, col].GetRoomType() is GenericRoom) || !(this.level[row, col].GetPotion() == null));
-            this.level[row, col].SetPotion(potion);
-            this.level[row, col].AddSize();
+                row = Random();
+                col = Random();
+            } while (!(this.Level[row, col].GetRoomType() is GenericRoom) || !(this.Level[row, col].GetPotion() == null));
+            this.Level[row, col].SetPotion(potion);
+            this.Level[row, col].AddSize();
         }
-        public void changenulls()
+        public void ChangeNulls()
         {
-            for (int row = 0; row < level.GetLength(0); row++)
+            for (int row = 0; row < Level.GetLength(0); row++)
             {
-                for (int col = 0; col < level.GetLength(1); col++)
+                for (int col = 0; col < Level.GetLength(1); col++)
                 {
-                    if (this.level[row, col].GetMinion() == null)
+                    if (this.Level[row, col].GetMinion() == null)
                     {
-                        this.level[row, col].SetMinion(noMinion);
+                        this.Level[row, col].SetMinion(NoMinion);
                     }
-                    if (this.level[row, col].GetUnique()==null)
+                    if (this.Level[row, col].GetUnique()==null)
                     {
-                        this.level[row, col].SetUnique(noUnique);
+                        this.Level[row, col].SetUnique(NoUnique);
                     }
 
-                    if (this.level[row, col].GetPotion() == null)
+                    if (this.Level[row, col].GetPotion() == null)
                     {
-                        this.level[row, col].SetPotion(noPotion);
+                        this.Level[row, col].SetPotion(NoPotion);
                     }
                 }//inner for loop
             }//outer for loop
         }
         public GoodGuy GetDisney()
         {
-            return disney;
+            return Disney;
         }
         public Room[,] GetLevel()
         {
-            return level;
+            return Level;
         }
-        public bool executeRoom(Context context, int row, int col, Party party, Backpack pack)
+        public bool ExecuteRoom(Context context, int row, int col, Party party, Backpack pack)
         {
             //backpack
             //party
-            Console.WriteLine(level[row,col]);
-            if (!(level[row, col].GetPotion() is NoPotion))
+            Console.WriteLine(Level[row,col]);
+            if (!(Level[row, col].GetPotion() is NoPotion))
             {
-                potionState.DoAction(context, level[row, col], party, pack, this, battleState,null);
+                PotionState.DoAction(context, Level[row, col], party, pack, this, BattleState,null);
                 //potionstate
             }//end of if
-            if (!(level[row, col].GetMinion() is NoMinions))
+            if (!(Level[row, col].GetMinion() is NoMinions))
             {
-                minionState.DoAction(context, level[row, col], party, pack, this, battleState,null);
+                MinionState.DoAction(context, Level[row, col], party, pack, this, BattleState,null);
                 //minionorbattlestate
             }
             //int index;
-            if (level[row, col].GetUnique() is UniqueItem)
+            if (Level[row, col].GetUnique() is UniqueItem)
             {
-                uniqueState.DoAction(context, level[row, col], party, pack, this, battleState,null);
+                UniqueState.DoAction(context, Level[row, col], party, pack, this, BattleState,null);
                 //uniquestate
             }
-            if (level[row, col].GetRoomType() is Exit)
+            if (Level[row, col].GetRoomType() is Exit)
             {
-                return exitState.DoAction(context, level[row, col], party, pack, this, battleState,new BadGuy[]{this.boss});
+                return ExitState.DoAction(context, Level[row, col], party, pack, this, BattleState,new BadGuy[]{this.Boss});
                 //exitstate
             }//end 
             Console.WriteLine(this);
             return false;
         }
 
-        public String itemType(Room room)
+        public String ItemType(Room room)
         {
 
             if (room.GetRoomType() is Entrance)
@@ -174,20 +173,20 @@ namespace ConsoleApplication1
         public override string ToString()
         {
             String result = "***********";
-            for (int row = 0; row < this.level.GetLength(0); row++)
+            for (int row = 0; row < this.Level.GetLength(0); row++)
             {
                 result = result + "\n*";
-                for (int col = 0; col < this.level.GetLength(1); col++)
+                for (int col = 0; col < this.Level.GetLength(1); col++)
                 {
-                    if (col < level.GetLength(1) - 1)
+                    if (col < Level.GetLength(1) - 1)
                     {
-                        result = result + itemType(this.level[row, col]) + "|";
+                        result = result + ItemType(this.Level[row, col]) + "|";
                     }
                     else
-                        result = result + itemType(this.level[row, col]) + "*";
+                        result = result + ItemType(this.Level[row, col]) + "*";
                 }//end of first inner for loop
                 result = result + "\n*";
-                for (int col2 = 0; col2 < this.level.GetLength(1); col2++)
+                for (int col2 = 0; col2 < this.Level.GetLength(1); col2++)
                 {
                     if (row < 4)
                     {
@@ -201,7 +200,7 @@ namespace ConsoleApplication1
 
         }//end of method
 
-        public int random()
+        public int Random()
         {
             Random random = new Random();
             return random.Next(5);

@@ -19,7 +19,7 @@ namespace ConsoleApplication1
             end = false;
         }
 
-        public void run()
+        public void Run()
       {
       	int choice;
          do{

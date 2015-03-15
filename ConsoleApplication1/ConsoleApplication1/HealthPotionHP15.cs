@@ -9,8 +9,8 @@ namespace ConsoleApplication1
     {
         public HealthPotionHP15()
         {
-            description = "15 HP Health Potion";
-            HP = 15;
+            Description = "15 HP Health Potion";
+            Hp = 15;
         }
     }
 }

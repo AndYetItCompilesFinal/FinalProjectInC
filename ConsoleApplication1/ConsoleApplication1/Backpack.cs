@@ -14,7 +14,33 @@ namespace ConsoleApplication1
             this.list = new List<Object>();
         }
 
-        public void deleteUniqueItems()
+        public PotionBehavior UseItem()
+        {
+            int i=0;
+            int choice;
+            int index = 0;
+            Console.WriteLine("What item would you like to use:");
+            foreach(Object o in list)
+            {
+                if(o is PotionBehavior)
+                {
+                    Console.WriteLine((i + 1) + ") " + o.ToString());
+                    i++;
+                }
+                index++;
+            }
+            Console.WriteLine();
+
+            Console.Write("Choice-->");
+            bool tryParse = int.TryParse(Console.ReadLine(), out choice);
+            if (!tryParse)
+            {
+                choice = -1;
+            }
+            return (PotionBehavior)list[choice];
+        }
+
+        public void DeleteUniqueItems()
         {
             for (int i = 0; i < list.Count; i++)
             {
@@ -25,6 +51,11 @@ namespace ConsoleApplication1
                 }
             }
 
+        }
+        
+        public void Remove(Object o)
+        {
+            list.Remove(o);
         }
 
         public void Add(Object o)

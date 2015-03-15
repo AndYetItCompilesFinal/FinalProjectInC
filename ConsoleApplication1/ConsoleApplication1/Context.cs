@@ -14,7 +14,7 @@ namespace ConsoleApplication1
             state = null;
         }
 
-        public void setState(State state)
+        public void SetState(State state)
         {
             this.state = state;
         }

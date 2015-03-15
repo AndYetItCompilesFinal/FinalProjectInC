@@ -26,7 +26,7 @@ namespace ConsoleApplication1
 
         public override int Attack3()
         {
-            Console.WriteLine(this.GetName() + " tried to smack the enemy.");g
+            Console.WriteLine(this.GetName() + " tried to smack the enemy.");
             return 5;
         }
 

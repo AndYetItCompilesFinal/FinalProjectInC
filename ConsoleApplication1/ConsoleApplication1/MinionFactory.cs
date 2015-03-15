@@ -7,9 +7,9 @@ namespace ConsoleApplication1
 {
     class MinionFactory
     {
-        public MinionBehavior createParty()
+        public MinionBehavior CreateParty()
         {
-            int num = random();
+            int num = Random();
             BadGuy[] bad;
             if (num == 0)
             {
@@ -34,7 +34,7 @@ namespace ConsoleApplication1
 
 
 
-        public int random()
+        public int Random()
         {
             Random random = new Random();
             return random.Next(3);

@@ -100,7 +100,10 @@ namespace ConsoleApplication1
 
         }
 
-
+        public void FullHeal()
+        {
+            this.Hp = this.MaxHp;
+        }
 
         public override string ToString()
         {

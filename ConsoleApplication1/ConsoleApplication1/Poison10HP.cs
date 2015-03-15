@@ -9,8 +9,8 @@ namespace ConsoleApplication1
     {
         public Poison10HP()
         {
-            description = "10 HP Poison";
-            HP = -10;
+            Description = "10 HP Poison";
+            Hp = -10;
         }
     }
 }

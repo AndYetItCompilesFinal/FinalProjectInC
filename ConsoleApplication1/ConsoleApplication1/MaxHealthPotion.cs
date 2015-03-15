@@ -9,8 +9,8 @@ namespace ConsoleApplication1
     {
         public MaxHealthPotion()
         {
-            description = "Max Health Potion";
-            HP = 50;
+            Description = "Max Health Potion";
+            Hp = 50;
         }
     }
 }

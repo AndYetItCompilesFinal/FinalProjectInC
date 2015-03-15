@@ -9,40 +9,40 @@ namespace ConsoleApplication1
     {
         private int TargetMinions;
         private MinionFactory MinionFactory;
-        private Party party;
+        private Party Party;
         public CombatLevel(GoodGuy disney,BadGuy boss, int minions,Party party):base(disney)
         {
             this.MinionFactory = new MinionFactory();
             this.TargetMinions = minions;
-            this.party = party;
-            initialize(boss);
+            this.Party = party;
+            Initialize(boss);
             for (int i = 0; i < minions; i++)
             {
-                createMinions();
+                CreateMinions();
             }
-            changenulls();
+            ChangeNulls();
         }
 
-        public override void printLevelObjective()
+        public override void PrintLevelObjective()
         {
             Console.WriteLine(this.GetDisney()+" needs your help!!\n");
             Console.WriteLine("Defeat "+TargetMinions+" Minions");
         }
 
-        public void createMinions()
+        public void CreateMinions()
         {
             int row, col;
             do
             {
-                row = random();
-                col = random();
+                row = Random();
+                col = Random();
             } while (!(GetLevel()[row, col].GetRoomType() is GenericRoom) || (GetLevel()[row, col].GetMinion() != null));
-            GetLevel()[row, col].SetMinion(MinionFactory.createParty());
+            GetLevel()[row, col].SetMinion(MinionFactory.CreateParty());
             GetLevel()[row, col].AddSize();
         }
-        public override bool objective()
+        public override bool Objective()
         {
-            if (this.TargetMinions==this.party.GetEnemiesDefeated())
+            if (this.TargetMinions==this.Party.GetEnemiesDefeated())
             {
                 return true;
             }

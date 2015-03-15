@@ -8,7 +8,7 @@ namespace ConsoleApplication1
 {
     class LevelEnum: IEnumerator
     {
-        private Level[] tower;
+        private Level[] Tower;
 
     // Enumerators are positioned before the first element 
     // until the first MoveNext() call. 
@@ -16,13 +16,13 @@ namespace ConsoleApplication1
 
     public LevelEnum(Level[] list)
     {
-        tower = list;
+        Tower = list;
     }
 
     public bool MoveNext()
     {
         position++;
-        return (position < tower.Length);
+        return (position < Tower.Length);
     }
 
     public void Reset()
@@ -44,7 +44,7 @@ namespace ConsoleApplication1
         {
             try
             {
-                return tower[position];
+                return Tower[position];
             }
             catch (IndexOutOfRangeException)
             {
