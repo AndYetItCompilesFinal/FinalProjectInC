@@ -7,18 +7,18 @@ namespace ConsoleApplication1
 {
     public class Party
     {
-        private GoodGuy[] Party;
+        private GoodGuy[] party;
         private List<string> Characters;
         private int EnemiesDefeated;
 
         public Party(GoodGuy a, GoodGuy b, GoodGuy c,List<string> characters)
         {
             this.Characters = characters;
-            Party = new GoodGuy[3];
+            party = new GoodGuy[3];
             this.EnemiesDefeated = 0;
-            Party[0] = a;
-            Party[1] = b;
-            Party[2] = c;
+            party[0] = a;
+            party[1] = b;
+            party[2] = c;
         }
         public int GetEnemiesDefeated()
         {
@@ -32,26 +32,26 @@ namespace ConsoleApplication1
         //return GoodGuy at the specified index
         public GoodGuy GetParty(int index)
         {
-            return Party[index];
+            return party[index];
         }
 
         //sets the GoodGuy at the specified index
         public void SetParty(GoodGuy chara, int index)
         {
-            Party[index] = chara;
+            party[index] = chara;
         }
 
         //prints the names of party members
         public override string ToString()
         {
-            String str = ("Your party consists of " + Party[0].ToString() + ", " + Party[1].ToString() + ", and " + Party[2].ToString() + ". ");
+            String str = ("Your party consists of " + party[0].ToString() + ", " + party[1].ToString() + ", and " + party[2].ToString() + ". ");
             return str;
         }
 
         //returns true if the party is still alive within battle
         public bool PartyAlive()
         {
-            if (!Party[0].IsAlive() && !Party[1].IsAlive() && !Party[2].IsAlive())
+            if (!party[0].IsAlive() && !party[1].IsAlive() && !party[2].IsAlive())
             {
                 return false;
             }
@@ -131,7 +131,7 @@ namespace ConsoleApplication1
                 Console.WriteLine("Who would you like to use the potion on");
                 for (int x = 0; x < 3; x++)
                 {
-                    Console.WriteLine((x + 1) + ". " + Party[x]);
+                    Console.WriteLine((x + 1) + ". " + party[x]);
                 }
                 Console.WriteLine();
 
@@ -151,14 +151,14 @@ namespace ConsoleApplication1
                     Console.WriteLine();
                 }//end of if
             } while (choice < 1 || choice > 3);
-            Party[choice - 1].AddHp(potion.getHP());
+            party[choice - 1].AddHp(potion.getHP());
         }
 
         internal void UpdateStats()
         {
-            Party[0].FullHeal();
-            Party[1].FullHeal();
-            Party[2].FullHeal();
+            party[0].FullHeal();
+            party[1].FullHeal();
+            party[2].FullHeal();
         }
     }
 }

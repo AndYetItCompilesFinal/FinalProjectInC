@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     class Mike:GoodGuy
     {
         public Mike()
-            : base("Mike Wazowski", 75, 75, .4, 15, 19, "Terrify", "Sneak", "Bite")
+            : base("Mike Wazowski", 75, 75, .4, 15, 17, "Terrify", "Send Sully", "Bite")
         {
 
         }
@@ -20,7 +20,7 @@ namespace ConsoleApplication1
 
         public override int Attack2()
         {
-            Console.WriteLine(this.GetName() + "tried to sneak attack the enemy. ");
+            Console.WriteLine(this.GetName() + " tried to send Sully to attack the enemy. ");
             return 5;
         }
 

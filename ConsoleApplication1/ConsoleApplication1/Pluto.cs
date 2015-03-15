@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     class Pluto : GoodGuy
     {
         public Pluto()
-            : base("Pluto", 75, 75, .6, 15, 13, "Bite", "Pounce", "Super Bark")
+            : base("Pluto", 50, 50, .6, 10, 9, "Bite", "Pounce", "Super Bark")
         {
  
         }
@@ -20,13 +20,13 @@ namespace ConsoleApplication1
 
         public override int Attack2()
         {
-            Console.WriteLine(this.GetName() + "tried to pounce on the enemy. ");
+            Console.WriteLine(this.GetName() + " tried to pounce on the enemy. ");
             return 5;
         }
 
         public override int Attack3()
         {
-            Console.WriteLine(this.GetName() + " tried to Super Bark the enemy.");
+            Console.WriteLine(this.GetName() + " tried to super bark the enemy.");
             return 5;
         }
 

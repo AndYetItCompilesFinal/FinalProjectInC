@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     class RobinHood : GoodGuy
     {
         public RobinHood()
-            : base("Robin Hood", 50, 50, .3, 20, 20, "Bow and Arrow", "Duel", "Steal Health")
+            : base("Robin Hood", 60, 60, .7, 20, 20, "Bow and Arrow", "Duel", "Steal Health")
         {
 
         }
@@ -20,7 +20,7 @@ namespace ConsoleApplication1
 
         public override int Attack2()
         {
-            Console.WriteLine(this.GetName() + "tried to duel with the enemy. ");
+            Console.WriteLine(this.GetName() + " tried to duel with the enemy. ");
             return 5;
         }
 

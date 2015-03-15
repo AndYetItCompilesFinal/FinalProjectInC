@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     class Minion:BadGuy
     {
         public Minion(string name)
-            : base(name, 50, 50, .5, 3, 5, "attack 1", "attack 2", "attack3")
+            : base(name, 50, 50, .4, 3, 5, "Sword", "Trip", "Tackle")
         {
             
         }
@@ -20,13 +20,13 @@ namespace ConsoleApplication1
 
         public override int Attack2()
         {
-            Console.WriteLine(this.GetName() + "tried to trip the enemy. ");
+            Console.WriteLine(this.GetName() + " tried to trip his enemy. ");
             return 1;
         }
 
         public override int Attack3()
         {
-            Console.WriteLine(this.GetName() + " tried to jump on and attack the enemy.");
+            Console.WriteLine(this.GetName() + " tried to tackle his enemy.");
             return 1;
         }
 

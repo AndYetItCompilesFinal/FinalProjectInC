@@ -22,7 +22,7 @@ namespace ConsoleApplication1
         }
 
 
-        public void findEntrance(Level level)
+        public void FindEntrance(Level level)
         {
             this.Level = level;
             this.Rooms = level.GetLevel();
@@ -40,7 +40,7 @@ namespace ConsoleApplication1
         }//end of method
 
 
-        public bool changeDirection()
+        public bool ChangeDirection()
         {
             int choice;
 

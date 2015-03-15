@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     class Hercules : GoodGuy
     {
         public Hercules()
-            : base("Hercules", 100, 100, .7, 10, 4, "Punch", "Use Pegasus", "Smash")
+            : base("Hercules", 75, 75, .7, 15, 15, "Punch", "Send Pegasus", "Sword")
         {
         }
 
@@ -20,13 +20,13 @@ namespace ConsoleApplication1
 
         public override int Attack2()
         {
-            Console.WriteLine(this.GetName() + "tried to call Pegusus to attack the enemy. ");
+            Console.WriteLine(this.GetName() + " tried to send Pegusus to attack the enemy. ");
             return 5;
         }
 
         public override int Attack3()
         {
-            Console.WriteLine(this.GetName() + " tried to smash the enemy.");
+            Console.WriteLine(this.GetName() + " tried to use sword on the enemy.");
             return 5;
         }
     }

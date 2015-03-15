@@ -28,10 +28,7 @@ namespace ConsoleApplication1
 
             foreach(Level level in tower)
             {
-                party.UpdateStats();
-                Console.WriteLine(level);
-                move.findEntrance(level);
-                mainMenu.Run();
+                mainMenu.Run(level);
             }
 
             Console.WriteLine("You have gone through the entire castle");

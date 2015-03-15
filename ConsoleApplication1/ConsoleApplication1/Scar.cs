@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     public class Scar : BadGuy
     {
         public Scar()
-            : base("Scar", 100, 100, .8, 19, 15, "Slash", "Pounce", "Wildebeast")
+            : base("Scar", 100, 100, .8, 19, 15, "Slash", "Kill Father", "Send hyenas")
         {
 
         }
@@ -20,13 +20,13 @@ namespace ConsoleApplication1
 
         public override int Attack2()
         {
-            Console.WriteLine(this.GetName() + "tried to pounce on his enemy. ");
+            Console.WriteLine(this.GetName() + " tried to kill his enemy's father. ");
             return 5;
         }
 
         public override int Attack3()
         {
-            Console.WriteLine(this.GetName() + " tried to thow his enemy into a pack of wildebeast.");
+            Console.WriteLine(this.GetName() + " tried to send hyenas to attack his enemy.");
             return 5;
         }
     }

@@ -7,18 +7,18 @@ namespace ConsoleApplication1
 {
     internal class Dumbo : GoodGuy
     {
-        public Dumbo() : base("Dumbo", 100, 100, .7, 4, 8, "Pink Elephants", "Flying Headbutt", "Stomp")
+        public Dumbo() : base("Dumbo", 50, 50, .7, 8, 8, "Sonic Trumpet", "Flying Headbutt", "Stomp")
         {
         }
         public override int Attack1()
         {
-            Console.WriteLine(this.GetName() + " tried to use scary Pink Elephants to attack the enemy. ");
+            Console.WriteLine(this.GetName() + " tried to use his trunk to sonic trumpet the enemy. ");
             return 15;
         }
 
         public override int Attack2()
         {
-            Console.WriteLine(this.GetName() + "tried to headbutt the enemy from the skies. ");
+            Console.WriteLine(this.GetName() + " tried to headbutt the enemy from the sky. ");
             return 5;
         }
 

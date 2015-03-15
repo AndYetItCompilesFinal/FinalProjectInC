@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     public class Ursula : BadGuy
     {
         public Ursula()
-            : base("Ursula", 100, 100, .8, 19, 15,"Tentacle Grab", "Poison Ink", "Mega Ursula")
+            : base("Ursula", 100, 100, .8, 19, 15,"Tentacle Grab", "Poison Ink", "Curse")
         {
 
         }
@@ -20,13 +20,13 @@ namespace ConsoleApplication1
 
         public override int Attack2()
         {
-            Console.WriteLine(this.GetName() + "tried to poison the enemy. ");
+            Console.WriteLine(this.GetName() + " tried to poison her enemy with ink. ");
             return 5;
         }
 
         public override int Attack3()
         {
-            Console.WriteLine(this.GetName() + " tried to transform into Mega Ursela and destroy her enemy.");
+            Console.WriteLine(this.GetName() + " tried to curse her enemy.");
             return 5;
         }
     }

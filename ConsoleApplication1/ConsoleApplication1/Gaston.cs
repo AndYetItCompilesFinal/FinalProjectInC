@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     public class Gaston : BadGuy
     {
         public Gaston()
-            : base("Gaston", 100, 100, .8, 19, 15, "Use Sword", "Rage", "Gun")
+            : base("Gaston", 100, 100, .8, 19, 15, "Use Sword", "Send Angry Mob", "Gun")
         {
 
         }
@@ -20,7 +20,7 @@ namespace ConsoleApplication1
 
         public override int Attack2()
         {
-            Console.WriteLine(this.GetName() + "tried to use his rage to overpower his enemy. ");
+            Console.WriteLine(this.GetName() + " tried to send an angry mob to attack his enemy. ");
             return 5;
         }
 

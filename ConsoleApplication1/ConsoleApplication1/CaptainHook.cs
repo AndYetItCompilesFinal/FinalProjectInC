@@ -8,19 +8,19 @@ namespace ConsoleApplication1
     public class CaptainHook : BadGuy
     {
         public CaptainHook()
-            : base("Captain Hook", 100, 100, .8, 19, 15, "Use Sword", "Trip Enemy", "Cannon")
+            : base("Captain Hook", 100, 100, .8, 19, 15, "Use Hook", "Force off the plank", "Cannon")
         {
 
         }
         public override int Attack1()
         {
-            Console.WriteLine(this.GetName() + " tried to slash the enemy with his sword. ");
+            Console.WriteLine(this.GetName() + " tried to slash the enemy with his hook. ");
             return 15;
         }
 
         public override int Attack2()
         {
-            Console.WriteLine(this.GetName() + "tried to trip the enemy. ");
+            Console.WriteLine(this.GetName() + " tried to force his enemy off the plank. ");
             return 5;
         }
 

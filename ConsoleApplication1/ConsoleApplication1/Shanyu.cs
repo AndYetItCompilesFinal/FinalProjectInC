@@ -9,25 +9,25 @@ namespace ConsoleApplication1
     public class Shanyu : BadGuy
     {
         public Shanyu()
-            : base("Shanyu", 100, 100, .8, 19, 15, "Ninja Status", "Trip Enemy", "Sword")
+            : base("Shanyu", 100, 100, .8, 19, 15, "Ambush", "Use Falcon", "Sword")
         {
 
         }
         public override int Attack1()
         {
-            Console.WriteLine(this.GetName() + " tried to use ninja moves on his enemy. ");
+            Console.WriteLine(this.GetName() + " tried to ambush his enemy. ");
             return 15;
         }
 
         public override int Attack2()
         {
-            Console.WriteLine(this.GetName() + "tried to trip the enemy. ");
+            Console.WriteLine(this.GetName() + " tried to use falcon on his enemy. ");
             return 5;
         }
 
         public override int Attack3()
         {
-            Console.WriteLine(this.GetName() + " tried to slash the enemy with his sword.");
+            Console.WriteLine(this.GetName() + " tried to slash his enemy with his sword.");
             return 5;
         }
     }

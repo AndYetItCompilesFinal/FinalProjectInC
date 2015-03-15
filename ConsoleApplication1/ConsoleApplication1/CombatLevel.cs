@@ -42,7 +42,7 @@ namespace ConsoleApplication1
         }
         public override bool Objective()
         {
-            if (this.TargetMinions==this.Party.GetEnemiesDefeated())
+            if (this.TargetMinions<=this.Party.GetEnemiesDefeated())
             {
                 return true;
             }

@@ -8,25 +8,25 @@ namespace ConsoleApplication1
     class Pocahontas : GoodGuy
     {
         public Pocahontas()
-            : base("Pocahontas", 50, 50, .5, 20, 16, "Arrow", "Spirit of the Woods", "Smack")
+            : base("Pocahontas", 50, 50, .5, 10, 10, "Swipe Feet", "Color of the wind", "Send animals")
         {
 
         }
         public override int Attack1()
         {
-            Console.WriteLine(this.GetName() + " tried to shoot an arrow at her enemy. ");
+            Console.WriteLine(this.GetName() + " tried to swipe her enemies feet. ");
             return 15;
         }
 
         public override int Attack2()
         {
-            Console.WriteLine(this.GetName() + "tried to send the animals to attack the enemy. ");
+            Console.WriteLine(this.GetName() + " tried to use the wind to attack the enemy. ");
             return 5;
         }
 
         public override int Attack3()
         {
-            Console.WriteLine(this.GetName() + " tried to smack the enemy.");
+            Console.WriteLine(this.GetName() + " tried to send animals to attack the enemy.");
             return 5;
         }
 

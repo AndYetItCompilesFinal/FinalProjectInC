@@ -32,7 +32,7 @@ namespace ConsoleApplication1
             {
                 Characters.Add(party.GetParty(i));
             }
-
+            Console.WriteLine();
             //selection sort
             SortBySpeed();
 

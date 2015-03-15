@@ -19,8 +19,12 @@ namespace ConsoleApplication1
             end = false;
         }
 
-        public void Run()
+        public void Run(Level level)
       {
+          level.PrintLevelObjective();
+          Console.WriteLine(level);
+          party.UpdateStats();
+          move.FindEntrance(level);
       	int choice;
          do{
             do{
@@ -28,7 +32,8 @@ namespace ConsoleApplication1
                Console.WriteLine("1.Move through the castle");
                Console.WriteLine("2.Open Backpack");
                Console.WriteLine("3.View Party Stats");
-               Console.WriteLine("4.Quit");
+               Console.WriteLine("4.View Objective");
+               Console.WriteLine("5.Quit");
                Console.WriteLine();		  	
                
                
@@ -39,19 +44,19 @@ namespace ConsoleApplication1
                    choice = -1;
                }
                Console.WriteLine();
-               if (choice<1 || choice>4)
+               if (choice<1 || choice>5)
                {
                   Console.WriteLine("I am sorry that is an invalid menu choice.");
                   Console.WriteLine("Please try again");
                   Console.WriteLine();
                }
                
-            } while (choice<1 || choice>4);
+            } while (choice<1 || choice>5);
             
             switch (choice)
             {
                case 1: 
-                  this.end=move.changeDirection();
+                  this.end=move.ChangeDirection();
                   break;
                case 2:
                  Console.WriteLine(pack);
@@ -62,6 +67,9 @@ namespace ConsoleApplication1
                      Console.WriteLine(party.GetParty(i).PrintStats());
                      Console.WriteLine();
                   }
+                  break;
+                case 4:
+                  level.PrintLevelObjective();
                   break;
                default:
 						end=true;

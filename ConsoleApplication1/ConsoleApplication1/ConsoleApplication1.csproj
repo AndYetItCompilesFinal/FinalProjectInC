@@ -80,6 +80,7 @@
     <Compile Include="MinionState.cs" />
     <Compile Include="Move.cs" />
     <Compile Include="MrIncerdible.cs" />
+    <Compile Include="Mulan.cs" />
     <Compile Include="NoMinions.cs" />
     <Compile Include="NoPotion.cs" />
     <Compile Include="NoUniqueItems.cs" />

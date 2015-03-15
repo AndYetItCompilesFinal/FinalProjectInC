@@ -8,7 +8,7 @@ namespace ConsoleApplication1
     class Stitch : GoodGuy
     {
         public Stitch()
-            : base("Stitch", 75, 75, .5, 20, 10,  "Claw", "Plasma Gun", "Chomp")
+            : base("Stitch", 50, 50, .5, 9, 10,  "Claw", "Plasma Gun", "Chomp")
         {
 
         }
@@ -21,7 +21,7 @@ namespace ConsoleApplication1
 
         public override int Attack2()
         {
-            Console.WriteLine(this.GetName() + "tried to shoot his enemy with a plasma gun. ");
+            Console.WriteLine(this.GetName() + " tried to shoot his enemy with a plasma gun. ");
             return 5;
         }
 

@@ -29,7 +29,7 @@ namespace ConsoleApplication1
             this.Speed = speed;
             this.Attack = attack;
             this.AttackName1 = attackname1;
-            this.AttackName2 = attackname1;
+            this.AttackName2 = attackname2;
             this.AttackName3 = attackname3;
 
 
