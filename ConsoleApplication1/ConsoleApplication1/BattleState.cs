@@ -160,6 +160,7 @@ namespace ConsoleApplication1
                 else
                 {
                     Console.WriteLine("The attack hit for " + dmg + ".");
+                    Console.WriteLine();
                     if (!Bad[index].ApplyDamage(dmg))
                     {
                         Remove(index);
@@ -174,15 +175,22 @@ namespace ConsoleApplication1
             else//use item
             {
                 PotionBehavior potion=Pack.UseItem();
-                if(potion is Poison10HP)
+                if (!(potion is NoPotion))
                 {
-                    int x=ChooseTarget();
-                    Bad[x].ApplyDamage(potion.getHP());
+                    if (potion is Poison10HP)
+                    {
+                        int x = ChooseTarget();
+                        Bad[x].ApplyDamage(potion.getHP());
+                    }
+                    else
+                    {
+                        Party.UsePotion(potion);
+                        Pack.Remove(potion);
+                    }
                 }
                 else
                 {
-                    Party.UsePotion(potion);
-                    Pack.Remove(potion);
+                    Console.WriteLine("Your backpack is empty");
                 }
             }
             return false;

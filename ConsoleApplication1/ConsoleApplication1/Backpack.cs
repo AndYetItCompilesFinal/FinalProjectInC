@@ -16,6 +16,10 @@ namespace ConsoleApplication1
 
         public PotionBehavior UseItem()
         {
+            if(list.Count==0)
+            {
+                return new NoPotion();
+            }
             int i=0;
             int choice;
             int index = 0;
@@ -37,7 +41,7 @@ namespace ConsoleApplication1
             {
                 choice = -1;
             }
-            return (PotionBehavior)list[choice];
+            return (PotionBehavior)list[choice-1];
         }
 
         public void DeleteUniqueItems()

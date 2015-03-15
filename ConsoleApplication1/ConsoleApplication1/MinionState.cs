@@ -15,7 +15,7 @@ namespace ConsoleApplication1
             int num = minions.Length;
             bool win;
             Console.WriteLine("There is a bad guy in the room!!");
-            Console.WriteLine("Battle " + num + " Minions");
+            Console.WriteLine("Battle " + num + " Minion(s)");
             Console.WriteLine();
             if (num == 1)
             {
