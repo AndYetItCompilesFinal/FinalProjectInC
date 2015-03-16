@@ -19,6 +19,9 @@ namespace ConsoleApplication1
         private UniqueState UniqueState = new UniqueState();
         private BattleState BattleState = new BattleState();
         private bool BossAttemped = false;
+        private int CurrentRow;
+        private int CurrentCol;
+
 
         public abstract bool Objective();
         public abstract void PrintLevelObjective();
@@ -43,6 +46,9 @@ namespace ConsoleApplication1
             int row = Random();
             int col = Random();
             this.level[row, col] = new Room(row, col, new Entrance());
+            this.CurrentRow = row;
+            this.CurrentCol = col;
+            this.level[row, col].SetHasVisited();
         }
         public void Exit()
         {
@@ -100,6 +106,7 @@ namespace ConsoleApplication1
                 }//inner for loop
             }//outer for loop
         }
+
         public GoodGuy GetDisney()
         {
             return Disney;
@@ -110,8 +117,9 @@ namespace ConsoleApplication1
         }
         public bool ExecuteRoom(Context context, int row, int col, Party party, Backpack pack)
         {
-            //backpack
-            //party
+            this.CurrentRow = row;
+            this.CurrentCol = col;
+            this.level[row, col].SetHasVisited();
             Console.WriteLine(level[row,col]);
             if (!(level[row, col].GetPotion() is NoPotion))
             {
@@ -140,35 +148,34 @@ namespace ConsoleApplication1
 
         public String ItemType(Room room)
         {
-
-            if (room.GetRoomType() is Entrance)
-            {
-                return "I";
-            }
             if (room.GetRoomType() is Exit)
             {
-                return "O";
+                return "S";
             }
-            if (room.GetSize() > 1)
+            if(room.GetHasVisited())
             {
-                return "M";
-            }
-            else if (room.GetUnique() is UniqueItem)
-            {
-                return "U";
-            }
-            else if (!(room.GetPotion() is NoPotion))
-            {
-                return "P";
-            }
-            else if (!(room.GetMinion() is NoMinions))
-            {
-                return "B";
-            }
-            else
-            {
-                return "E";
-            }
+                    if (room.GetSize() > 1)
+                    {
+                        return "M";
+                    }
+                    else if (room.GetUnique() is UniqueItem)
+                    {
+                        return "U";
+                    }
+                    else if (!(room.GetPotion() is NoPotion))
+                    {
+                        return "P";
+                    }
+                    else if (!(room.GetMinion() is NoMinions))
+                    {
+                        return "B";
+                    }
+                    else
+                    {
+                        return "E";
+                    }
+                }
+                return "?";
         }
 
         public override string ToString()
@@ -181,10 +188,26 @@ namespace ConsoleApplication1
                 {
                     if (col < level.GetLength(1) - 1)
                     {
-                        result = result + ItemType(this.level[row, col]) + "|";
+                        if (row == this.CurrentRow && col == this.CurrentCol)
+                        {
+                            result += "#|";
+                        }
+                        else
+                        {
+                            result = result + ItemType(this.level[row, col]) + "|";
+                        }
+                        
                     }
                     else
-                        result = result + ItemType(this.level[row, col]) + "*";
+                        if(row==this.CurrentRow&&col==this.CurrentCol)
+                        {
+                            result += "#*";
+                        }
+                        else
+                        {
+                            result = result + ItemType(this.level[row, col]) + "*";
+                        }
+                       
                 }//end of first inner for loop
                 result = result + "\n*";
                 for (int col2 = 0; col2 < this.level.GetLength(1); col2++)

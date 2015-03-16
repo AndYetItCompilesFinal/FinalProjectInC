@@ -12,7 +12,6 @@ namespace ConsoleApplication1
         {
             context.SetState(this);
             pack.Add(room.GetUnique());
-            Console.WriteLine(room.GetUnique().GetDescription() + " added to backpack\n");
             room.SetUnique(new NoUniqueItems());
             room.SubtractSize();
             return false;

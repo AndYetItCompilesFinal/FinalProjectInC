@@ -14,12 +14,14 @@ namespace ConsoleApplication1
         private int Row;
         private int Col;
         private int Size;
+        private bool HasVisited;
         public Room(int row, int col, RoomTypeBehavior type)
         {
             this.Row = row;
             this.Col = col;
             this.Type = type;
             this.Size = 0;
+            this.HasVisited = false;
         }
         public UniqueLevelItemBehavior GetUnique()
         {
@@ -40,6 +42,14 @@ namespace ConsoleApplication1
         public int GetSize()
         {
             return Size;
+        }
+        public bool GetHasVisited()
+        {
+            return this.HasVisited;
+        }
+        public void SetHasVisited()
+        {
+            this.HasVisited = true;
         }
         public void SetPotion(PotionBehavior potion)
         {
