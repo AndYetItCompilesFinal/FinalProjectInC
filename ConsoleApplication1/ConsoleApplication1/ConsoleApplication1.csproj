@@ -50,7 +50,6 @@
     <Compile Include="CaptainHook.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="ChickenLittle.cs" />
-    <Compile Include="ChuckNorris.cs" />
     <Compile Include="CombatLevel.cs" />
     <Compile Include="ContainsMinion.cs" />
     <Compile Include="Context.cs" />
