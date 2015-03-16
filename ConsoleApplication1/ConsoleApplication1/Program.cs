@@ -39,6 +39,7 @@ namespace ConsoleApplication1
             Console.WriteLine("And helped all of the Characters");
             Console.WriteLine();
             Console.WriteLine("You Win!!!!!");
+            Console.ReadLine();
             }
             
             
