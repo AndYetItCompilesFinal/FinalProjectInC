@@ -42,7 +42,7 @@ namespace ConsoleApplication1
                 
             }
 
-            Console.ReadLine();
+            Console.ReadLine();//in case someone accidentally enters an extra key stroke
             Console.ReadLine();
         }
     }
